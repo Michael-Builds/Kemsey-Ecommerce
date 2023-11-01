@@ -7,51 +7,48 @@ import { GoArrowRight } from 'react-icons/go';
 const carouselItems = [
     {
         image: Image,
-        title: "Explore the Office",
-        description: " Family, business pleasure",
-        buttonText: "Explore Now ",
-        link: "#"
-    },
-
-    {
-        image: Image,
-        title: "Disvover your Living",
-        description: " Family, business pleasure",
-        buttonText: "Explore Now ",
-        link: "#"
-    },
-    {
-        image: Image,
-        title: "Explore the Office",
-        description: " Family, business pleasure",
-        buttonText: "Shop Now",
-        link: "#"
-
-    },
-    {
-        image: Image,
-        title: "Luxury Interiors",
-        description: " Family, business pleasure",
-        buttonText: "Shop Now",
-        link: "#"
-
-    },
-    {
-        image: Image,
-        title: "Fully Furnished",
-        description: " Family, business pleasure",
-        buttonText: "Shop Now",
-        link: "#"
-
-    },
-    {
-        image: Image,
-        title: "Explore the Office",
-        description: " Family, business pleasure",
+        title: "Furniture for Your Workspace",
+        description: "Enhance your office with our stylish and functional furniture.",
         buttonText: "Explore Now",
-        link: "#"
+        link: "#",
+    },
+    {
+        image: Image,
+        title: "Discover Comfort for Your Home",
+        description: "Transform your living spaces into cozy retreats for your family.",
+        buttonText: "Explore Now",
+        link: "#",
+    },
+    {
+        image: Image,
+        title: "Upgrade Your Office Furniture",
+        description: "Elevate your workspace with our premium office furniture collections.",
+        buttonText: "Shop Now",
+        link: "#",
+    },
+    {
+        image: Image,
+        title: "Luxury Interiors for Every Room",
+        description: "Experience luxury with our exquisite interior decor and furniture.",
+        buttonText: "Shop Now",
+        link: "#",
+    },
+    {
+        image: Image,
+        title: "Fully Furnished Homes, Delivered",
+        description: "Explore our fully furnished homes for the ultimate convenience.",
+        buttonText: "Shop Now",
+        link: "#",
+    },
+    {
+        image: Image,
+        title: "Elevate Your Workspace",
+        description: "Upgrade your office environment for better productivity and comfort.",
+        buttonText: "Explore Now",
+        link: "#",
     },
 ];
+
 
 const Hero = () => {
     return (
@@ -72,7 +69,7 @@ const Hero = () => {
                             <img src={item.image} alt="Image" className="object-cover object-center h-full w-full" />
                             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-10"></div>
                         </div>
-                        <div className="absolute pl-[15%] carousel-text flex flex-col items-start z-20 left-0">
+                        <div className="absolute pl-[10%] carousel-text flex flex-col items-start z-20 left-0">
                             <h1 className="font-raleway text-white text-2xl md:text-5xl font-bold mb-4 tracking-wide leading-tight">
                                 {item.title}
                             </h1>

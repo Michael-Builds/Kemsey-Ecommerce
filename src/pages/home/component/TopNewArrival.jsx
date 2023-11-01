@@ -62,10 +62,10 @@ const TopNewArrival = () => {
                         </div>
                         <div className="pt-4 pb-3 px-4">
                             <a href="#">
-                                <h4 className="uppercase font-semibold text-lg font-quicksand text-center mb-2 text-gray-800 hover:text-primary transition">{product.title}</h4>
+                                <h4 className="uppercase font-semibold md:text-lg text-md font-quicksand text-center mb-2 text-gray-800 hover:text-primary transition">{product.title}</h4>
                             </a>
                             <div className="flex items-baseline items-center justify-center mb-1 space-x-2 ">
-                                <p className="text-xl text-primary font-semibold text-center">{product.price}</p>
+                                <p className="md:text-xl text-md text-primary font-semibold text-center">{product.price}</p>
                                 <p className="text-sm text-gray-400 line-through text-center">{product.oldPrice}</p>
                             </div>
                             <div className="flex items-center  text-center justify-center mt-2">

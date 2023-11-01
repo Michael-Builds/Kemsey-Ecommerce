@@ -7,6 +7,7 @@ import ShopByCategory from './component/ShopByCategory';
 import TopNewArrival from './component/TopNewArrival';
 import Offer from './component/Offer';
 import Recommended from './component/Recommended';
+import Footer from '../components/Footer';
 
 const Home = () => {
     const location = useLocation();
@@ -24,6 +25,7 @@ const Home = () => {
             <TopNewArrival />
             <Offer />
             <Recommended />
+            <Footer />
 
         </>
     );

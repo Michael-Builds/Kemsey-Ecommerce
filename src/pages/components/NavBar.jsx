@@ -33,34 +33,34 @@ const Navbar = () => {
                 {searchToggle && (
                     <ul className="hidden lg:flex items-center font-quicksand text-md font-medium gap-4">
                         <Link
-                            to="/categories"
-                            className="hover:dark:bg-slate-900 hover:bg-slate-200 py-2 px-5 rounded-md w-[80px] h-[40px] flex items-center justify-center"
+                            to="/"
+                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
                         >
-                            Men
+                            Home
+                        </Link>
+                        <Link
+                            to="/shop"
+                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
+                        >
+                            Shop
                         </Link>
                         <Link
                             to="/products"
-                            className="hover:dark:bg-slate-900 hover:bg-slate-200 py-2 px-5 rounded-md w-[80px] h-[40px] flex items-center justify-center"
+                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
                         >
-                            Women
+                            About Us
                         </Link>
                         <Link
                             to="/products"
-                            className="hover:dark:bg-slate-900 hover:bg-slate-200 py-2 px-5 rounded-md w-[80px] h-[40px] flex items-center justify-center"
+                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
                         >
-                            Beauty
-                        </Link>
-                        <Link
-                            to="/products"
-                            className="hover:dark:bg-slate-900 hover:bg-slate-200 py-2 px-5 rounded-md w-[80px] h-[40px] flex items-center justify-center"
-                        >
-                            Sport
+                            Contact
                         </Link>
                         <Link
                             to="/blog"
-                            className="hover:dark:bg-slate-900 hover:bg-slate-200 py-2 px-5 rounded-md w-[80px] h-[40px] flex items-center justify-center"
+                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
                         >
-                            Blog
+                            Partner
                         </Link>
                     </ul>
 

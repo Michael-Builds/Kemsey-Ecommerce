@@ -49,12 +49,11 @@ const Sidebar = ({ setNavToggle }) => {
         </div>
 
         <ul className={`grid gap-3 font-quicksand ${textClass}`}>
-          <Link to="">Men</Link>
-          <Link to="">Women</Link>
-          <Link to="">Beauty</Link>
-          <Link to="">Sports</Link>
-          <Link to="">Templates</Link>
-          <Link to="">Explore</Link>
+          <Link to="/">Home</Link>
+          <Link to="/shop">Shop</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/partner">Partner</Link>
         </ul>
       </aside>
     </section>

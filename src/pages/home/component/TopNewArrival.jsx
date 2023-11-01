@@ -46,7 +46,7 @@ const TopNewArrival = () => {
     return (
         <div className="container pb-16 mt-12">
             <h2 className="text-2xl font-semibold font-quicksand text-gray-800 capitalize md:mb-6 mb-4">Top New Arrivals</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {products.map((product, index) => (
                     <div key={index} className="bg-white shadow rounded overflow-hidden group shadow-lg">
                         <div className="relative">
@@ -62,7 +62,7 @@ const TopNewArrival = () => {
                         </div>
                         <div className="pt-4 pb-3 px-4">
                             <a href="#">
-                                <h4 className="uppercase font-semibold text-xl font-quicksand text-center mb-2 text-gray-800 hover:text-primary transition">{product.title}</h4>
+                                <h4 className="uppercase font-semibold text-lg font-quicksand text-center mb-2 text-gray-800 hover:text-primary transition">{product.title}</h4>
                             </a>
                             <div className="flex items-baseline items-center justify-center mb-1 space-x-2 ">
                                 <p className="text-xl text-primary font-semibold text-center">{product.price}</p>

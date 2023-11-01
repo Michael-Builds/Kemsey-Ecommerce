@@ -5,6 +5,8 @@ import NavBar from '../components/NavBar'
 import Features from './component/Features';
 import ShopByCategory from './component/ShopByCategory';
 import TopNewArrival from './component/TopNewArrival';
+import Offer from './component/Offer';
+import Recommended from './component/Recommended';
 
 const Home = () => {
     const location = useLocation();
@@ -20,6 +22,8 @@ const Home = () => {
             <Features />
             <ShopByCategory />
             <TopNewArrival />
+            <Offer />
+            <Recommended />
 
         </>
     );

@@ -1,11 +1,8 @@
-
 import Img1 from '../../../assets/products/product1.jpg';
 import Img2 from '../../../assets/products/product2.jpg';
 import Img3 from '../../../assets/products/product3.jpg';
 import Img4 from '../../../assets/products/product4.jpg';
 import { BsSearch, BsHeartFill, BsStarFill } from 'react-icons/bs';
-// import { AiFillHeart } from 'react/icons/ai';
-
 
 const products = [
     {
@@ -44,7 +41,7 @@ const products = [
 
 const TopNewArrival = () => {
     return (
-        <div className="container pb-16 mt-12">
+        <div className="container pb-16 md:mt-4 -mt-2">
             <h2 className="text-2xl font-semibold font-quicksand text-gray-800 capitalize md:mb-6 mb-4">Top New Arrivals</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {products.map((product, index) => (

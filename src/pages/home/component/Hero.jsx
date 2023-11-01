@@ -8,46 +8,46 @@ const carouselItems = [
     {
         image: Image,
         title: "Home Comfort",
-        description: " Family, business pleasure",
+        description: "Cozy Living Spaces",
         buttonText: "Explore Now ",
         link: "#"
     },
 
     {
         image: Image,
-        title: "Office Furniture Upgrades",
-        description: " Family, business pleasure",
+        title: "Office Furniture",
+        description: "Stylish & Functional",
         buttonText: "Explore Now ",
         link: "#"
     },
     {
         image: Image,
-        title: "Workspace Enhancement",
-        description: " Family, business pleasure",
-        buttonText: "Shop Now",
-        link: "#"
-
-    },
-    {
-        image: Image,
         title: "Home Comfort",
-        description: " Family, business pleasure",
+        description: "Cozy Living Spaces",
         buttonText: "Shop Now",
         link: "#"
 
     },
     {
         image: Image,
-        title: "Workspace Enhancement",
-        description: " Family, business pleasure",
+        title: "Upgrade Workspace",
+        description: "Elevate Productivity",
         buttonText: "Shop Now",
         link: "#"
 
     },
     {
         image: Image,
-        title: "Home Comfort",
-        description: " Family, business pleasure",
+        title: "Furnished Homes",
+        description: "Ultimate Convenience",
+        buttonText: "Shop Now",
+        link: "#"
+
+    },
+    {
+        image: Image,
+        title: "Enhance Office",
+        description: "Comfort & Productivity",
         buttonText: "Explore Now",
         link: "#"
     },
@@ -72,7 +72,7 @@ const Hero = () => {
                             <img src={item.image} alt="Image" className="object-cover object-center h-full w-full" />
                             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-10"></div>
                         </div>
-                        <div className="absolute pl-[12%] carousel-text flex flex-col items-start z-20 left-0">
+                        <div className="absolute pl-[12%] carousel-text flex flex-col items-start z-20 left-0 -mb-4 md:mb-0">
                             <h1 className="font-raleway -ml-1 text-white text-2xl md:text-5xl font-bold mb-4 tracking-wide leading-tight">
                                 {item.title}
                             </h1>

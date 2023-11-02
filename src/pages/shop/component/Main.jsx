@@ -8,7 +8,7 @@ import Img6 from '../../../assets/products/product6.jpg';
 import Img7 from '../../../assets/products/product7.jpg';
 import Img8 from '../../../assets/products/product8.jpg';
 import { useState } from 'react';
-import { BsSearch, BsHeartFill, BsStarFill, BsGridFill } from 'react-icons/bs';
+import { BsStarFill, BsGridFill } from 'react-icons/bs';
 import { FaListUl } from 'react-icons/fa';
 
 const products = [
@@ -19,6 +19,7 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        category: 'Furniture',
     },
     {
         imgSrc: Img2,
@@ -27,6 +28,7 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        category: 'Bedroom',
     },
     {
         imgSrc: Img3,
@@ -35,6 +37,7 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        category: 'Furniture',
     },
     {
         imgSrc: Img4,
@@ -43,6 +46,7 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        category: 'Bedroom',
     },
     {
         imgSrc: Img5,
@@ -51,6 +55,7 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        category: 'Bedroom',
     },
     {
         imgSrc: Img6,
@@ -59,6 +64,7 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        category: 'Furniture',
     },
     {
         imgSrc: Img7,
@@ -67,6 +73,7 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        category: 'Furniture',
     },
     {
         imgSrc: Img8,
@@ -75,6 +82,7 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        category: 'Bedroom',
     },
 ];
 
@@ -93,6 +101,51 @@ const Main = () => {
         setActiveView('list');
     };
 
+    const [selectedCategories, setSelectedCategories] = useState(new Set());
+
+    // Function to handle category checkbox changes
+    const handleCategoryChange = (category) => {
+        const updatedCategories = new Set(selectedCategories);
+        if (updatedCategories.has(category)) {
+            updatedCategories.delete(category);
+        } else {
+            updatedCategories.add(category);
+        }
+        setSelectedCategories(updatedCategories);
+    };
+
+    // Function to check if a category is selected
+    const isCategorySelected = (category) => {
+        return selectedCategories.has(category);
+    };
+
+    // Function to filter products based on selected categories
+    const getFilteredProducts = () => {
+        if (selectedCategories.size === 0) {
+            return products; // If no category is selected, show all products.
+        } else {
+            return products.filter((product) => selectedCategories.has(product.category));
+        }
+    };
+
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const getFilteredProductsBySearch = () => {
+        const normalizedQuery = searchQuery.toLowerCase().trim();
+        if (normalizedQuery === '') {
+            return getFilteredProducts();
+        } else {
+            return getFilteredProducts().filter((product) => {
+                return (
+                    product.title.toLowerCase().includes(normalizedQuery) ||
+                    product.category.toLowerCase().includes(normalizedQuery)
+                );
+            });
+        }
+    };
+
+
+
     return (
         <div className="container grid md:grid-cols-4 grid-cols-2 gap-6 pt-4 md:pb-8 items-start">
             {/* SideBar Component */}
@@ -100,30 +153,76 @@ const Main = () => {
                 <div className="divide-y divide-gray-200 space-y-5 mt-4">
                     <div>
                         <h3 className="md:text-lg text-gray-800 mb-3 font-quicksand uppercase font-semibold">Categories</h3>
-                        <div className="space-y-2 font-quicksand ">
+                        <div className="space-y-2 font-quicksand">
                             <div className="flex items-center">
-                                <input type="checkbox" name="cat-1" id="cat-1"
-                                    className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
+                                <input
+                                    type="checkbox"
+                                    name="Furniture"
+                                    id="cat-Furniture"
+                                    className="text-primary focus:ring-0 rounded-sm cursor-pointer"
+                                    checked={isCategorySelected("Furniture")}
+                                    onChange={() => handleCategoryChange("Furniture")}
+                                />
+                                <label className="text-gray-600 ml-3 cursor-pointer">Furniture</label>
+                                <div className="ml-auto text-gray-600 text-sm">
+                                    ({products.filter((product) => product.category === "Furniture").length})
+                                </div>
+                            </div>
+                            <div className="flex items-center">
+                                <input
+                                    type="checkbox"
+                                    name="Bedroom"
+                                    id="cat-Bedroom"
+                                    className="text-primary focus:ring-0 rounded-sm cursor-pointer"
+                                    checked={isCategorySelected("Bedroom")}
+                                    onChange={() => handleCategoryChange("Bedroom")}
+                                />
                                 <label className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
-                                <div className="ml-auto text-gray-600 text-sm">(15)</div>
+                                <div className="ml-auto text-gray-600 text-sm">
+                                    ({products.filter((product) => product.category === "Bedroom").length})
+                                </div>
                             </div>
                             <div className="flex items-center">
-                                <input type="checkbox" name="cat-2" id="cat-2"
-                                    className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
-                                <label className="text-gray-600 ml-3 cursor-pointer">Sofa</label>
-                                <div className="ml-auto text-gray-600 text-sm">(9)</div>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" name="cat-3" id="cat-3"
-                                    className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
-                                <label className="text-gray-600 ml-3 cursor-pointer">Office</label>
-                                <div className="ml-auto text-gray-600 text-sm">(21)</div>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" name="cat-4" id="cat-4"
-                                    className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
+                                <input
+                                    type="checkbox"
+                                    name="Outdoor"
+                                    id="cat-Outdoor"
+                                    className="text-primary focus:ring-0 rounded-sm cursor-pointer"
+                                    checked={isCategorySelected("Outdoor")}
+                                    onChange={() => handleCategoryChange("Outdoor")}
+                                />
                                 <label className="text-gray-600 ml-3 cursor-pointer">Outdoor</label>
-                                <div className="ml-auto text-gray-600 text-sm">(10)</div>
+                                <div className="ml-auto text-gray-600 text-sm">
+                                    ({products.filter((product) => product.category === "Outdoor").length})
+                                </div>
+                            </div>
+                            <div className="flex items-center">
+                                <input
+                                    type="checkbox"
+                                    name="Office"
+                                    id="cat-Office"
+                                    className="text-primary focus:ring-0 rounded-sm cursor-pointer"
+                                    checked={isCategorySelected("Office")}
+                                    onChange={() => handleCategoryChange("Office")}
+                                />
+                                <label className="text-gray-600 ml-3 cursor-pointer">Office</label>
+                                <div className="ml-auto text-gray-600 text-sm">
+                                    ({products.filter((product) => product.category === "Office").length})
+                                </div>
+                            </div>
+                            <div className="flex items-center">
+                                <input
+                                    type="checkbox"
+                                    name="Sofa"
+                                    id="cat-Sofa"
+                                    className="text-primary focus:ring-0 rounded-sm cursor-pointer"
+                                    checked={isCategorySelected("Sofa")}
+                                    onChange={() => handleCategoryChange("Sofa")}
+                                />
+                                <label className="text-gray-600 ml-3 cursor-pointer">Sofa</label>
+                                <div className="ml-auto text-gray-600 text-sm">
+                                    ({products.filter((product) => product.category === "Sofa").length})
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -238,18 +337,17 @@ const Main = () => {
                 </div>
             </div>
 
-
             {/* Product Component */}
             <div className="col-span-3">
                 {/* Header Component of the Product Component */}
                 <div className="flex items-center md:mb-6 mb-8">
-                    <select name="sort" id="sort"
-                        className="w-44 md:text-sm  text-xs font-quicksand text-gray-600 py-2 px-3 border border-gray-600 shadow-sm rounded focus:ring-primary focus:outline-none">
-                        <option value="">Default sorting</option>
-                        <option value="price-low-to-high">Price low to high</option>
-                        <option value="price-high-to-low">Price high to low</option>
-                        <option value="latest">Latest product</option>
-                    </select>
+                    <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder="Search..."
+                        className=" border text-sm p-2  items-center border-gray-800 focus:outline-none font-quicksand rounded focus:ring-0 px-3 py-1 text-gray-600 shadow-sm"
+                    />
 
                     <div className="flex gap-2 ml-auto">
                         <div
@@ -270,18 +368,10 @@ const Main = () => {
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {products.slice(0, visibleProducts).map((product, index) => (
+                    {getFilteredProductsBySearch().slice(0, visibleProducts).map((product, index) => (
                         <div key={index} className="bg-white shadow rounded overflow-hidden group shadow-lg">
                             <div className="relative">
                                 <img src={product.imgSrc} alt={`Product ${index + 1}`} className="w-full cursor-pointer" />
-                                {/* <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                                    <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
-                                        <BsSearch />
-                                    </a>
-                                    <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="add to wishlist">
-                                        <BsHeartFill />
-                                    </a>
-                                </div> */}
                             </div>
                             <div className="pt-4 pb-3 px-4">
                                 <a href="#">
@@ -300,11 +390,12 @@ const Main = () => {
                                     <div className="text-sm text-gray-500 font-quicksand ml-3">({product.totalReviews})</div>
                                 </div>
                             </div>
-                            <a href="#" className="block w-full py-1 text-center text-white bg-primary font-quicksand border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add to cart</a>
+                            <a href="#" className="block w-full py-1 text-center text-white bg-primary font-quicksand border border-primary rounded-b hover-bg-transparent hover-text-primary transition">Add to cart</a>
                         </div>
                     ))}
                 </div>
-                {visibleProducts < products.length && (
+
+                {visibleProducts < getFilteredProductsBySearch().length && (
                     <div className="text-center md:mt-10 mt-8">
                         <button
                             onClick={showMore}

@@ -77,9 +77,7 @@ const Footer = () => {
                                 </a>
                             ))}
                         </div>
-
                     </div>
-
                     <div className="col-span-2 grid md:grid-cols-4 grid-cols-2 gap-4 mx-auto">
                         {footerLinks.map((column, columnIndex) => (
                             <div key={columnIndex} className="grid grid-cols-2 gap-4 md:gap-8">

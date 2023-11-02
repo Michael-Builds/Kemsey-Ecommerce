@@ -6,13 +6,19 @@ import { useState } from "react";
 import User from "../home/component/User";
 import Sidebar from "./SideBar";
 import Logo from '../../assets/logo.jpg';
+import PropTypes from "prop-types";
+import { useCart } from './useCart';
 
 const Navbar = () => {
+
     const [navToggle, setNavToggle] = useState(false);
     const [searchToggle, setSearchToggle] = useState(true);
 
+    // Calculate the total number of items in the cart
+    const { cartItemCount } = useCart();
+
     return (
-        <section className="sticky z-50 top-0 inset-x-0 bg-white dark:bg-slate-950 dark:text-slate-300">
+        <section className="sticky z-50 top-0 inset-x-0 bg-white dark:bg-slate-950 dark:text-slate-300 shadow-md">
             <nav className="flex justify-between items-center w-[90%] 2xl:w-[1440px] mx-auto py-5">
                 <div onClick={() => setNavToggle(!navToggle)} className="lg:hidden">
                     <RxHamburgerMenu className="text-2xl" />
@@ -31,7 +37,7 @@ const Navbar = () => {
                 </Link>
 
                 {searchToggle && (
-                    <ul className="hidden lg:flex items-center font-quicksand text-md font-medium gap-4">
+                    <ul className="hidden lg:flex items-center font-quicksand text-md font-medium">
                         <Link
                             to="/"
                             className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
@@ -43,6 +49,12 @@ const Navbar = () => {
                             className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
                         >
                             Shop
+                        </Link>
+                        <Link
+                            to="/sell"
+                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
+                        >
+                            Sell
                         </Link>
                         <Link
                             to="/products"
@@ -63,8 +75,6 @@ const Navbar = () => {
                             Partner
                         </Link>
                     </ul>
-
-
                 )}
 
                 {searchToggle && (
@@ -73,7 +83,7 @@ const Navbar = () => {
                             onClick={() => setSearchToggle(!searchToggle)}
                             className="hidden lg:block hover:dark:bg-slate-900 hover:bg-slate-100 p-2 rounded-full"
                         >
-                            <CiSearch className="text-2xl cursor-pointer" />
+                            <CiSearch className="md:text-xl cursor-pointer" />
                         </li>
                         <li className="">
                             <User />
@@ -82,9 +92,9 @@ const Navbar = () => {
                             to="/cart"
                             className="relative hover:dark:bg-slate-900 hover:bg-slate-100 p-2 rounded-full"
                         >
-                            <PiShoppingCartThin className="text-2xl" />
+                            <PiShoppingCartThin className="md:text-xl" />
                             <div className="absolute top-0 right-0 p-1 h-4 text-xs text-center rounded-full bg-blue-600 text-white flex justify-center items-center">
-                                <p className="text-center justify-center">8</p>
+                                <p className="text-center justify-center">{cartItemCount}</p>
                             </div>
                         </Link>
                     </ul>
@@ -105,17 +115,19 @@ const Navbar = () => {
                     </button>
                 )}
             </nav>
-
             {navToggle && (
                 <div
                     onClick={() => setNavToggle(!navToggle)}
                     className="lg:hidden fixed inset-0 bg-slate-900/20 backdrop-blur-lg w-full h-full"
                 ></div>
             )}
-
             {navToggle && <Sidebar setNavToggle={setNavToggle} />}
         </section>
     );
+};
+
+Navbar.propTypes = {
+    cartItems: PropTypes.array.isRequired, // Define the PropTypes for cartItems
 };
 
 export default Navbar;

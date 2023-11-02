@@ -66,7 +66,7 @@ const Footer = () => {
                     <div className="col-span-1 space-y-4 mb-6">
                         <img src={Logo} alt="logo" className="h-16 h-16 rounded-full" />
                         <div className="mr-2">
-                            <p className="text-gray-500">
+                            <p className="text-gray-500 font-quicksand">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, hic?
                             </p>
                         </div>

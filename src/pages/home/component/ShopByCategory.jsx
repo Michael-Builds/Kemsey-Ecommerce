@@ -4,38 +4,40 @@ import Img3 from '../../../assets/category/category-3.jpg';
 import Img4 from '../../../assets/category/category-4.jpg';
 import Img5 from '../../../assets/category/category-5.jpg';
 import Img6 from '../../../assets/category/category-6.jpg';
+import { Link } from "react-router-dom";
+
 
 const categories = [
     {
         imgSrc: Img1,
         title: "Bedroom",
-        link: '/bedroom',
+        url: '/bedroom',
     },
     {
         imgSrc: Img2,
         title: "Mattress",
-        link: '/mattress',
+        url: '/mattress',
 
     },
     {
         imgSrc: Img3,
         title: "Outdoor",
-        link: '/outdoor',
+        url: '/outdoor',
     },
     {
         imgSrc: Img4,
         title: "Sofa",
-        link: '/sofa',
+        url: '/sofa',
     },
     {
         imgSrc: Img5,
         title: "Living Room",
-        link: '/living-room',
+        url: '/living-room',
     },
     {
         imgSrc: Img6,
         title: "Kitchen",
-        link: '/kitchen',
+        url: '/kitchen',
     },
 ];
 
@@ -48,10 +50,10 @@ const ShopByCategory = () => {
                     <div key={index} className="relative rounded-md overflow-hidden group">
                         <img src={category.imgSrc} alt={`Category ${index + 1}`} className="w-full" />
 
-                        <a href={category.link}
+                        <Link to={category.url}
                             className="absolute inset-0 font-quicksand bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-semibold group-hover:bg-opacity-60 transition">
                             {category.title}
-                        </a>
+                        </Link>
                     </div>
                 ))}
             </div>

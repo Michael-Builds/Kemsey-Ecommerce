@@ -12,7 +12,6 @@ const footerLinks = [
             { text: 'Marketing', url: '#' },
             { text: 'Analytics', url: '#' },
             { text: 'Commerce', url: '#' },
-            { text: 'Insights', url: '#' },
         ],
     },
     {
@@ -21,7 +20,6 @@ const footerLinks = [
             { text: 'Marketing', url: '#' },
             { text: 'Analytics', url: '#' },
             { text: 'Commerce', url: '#' },
-            { text: 'Insights', url: '#' },
         ],
     },
 
@@ -32,7 +30,6 @@ const footerLinks = [
             { text: 'Pricing', url: '#' },
             { text: 'Documentation', url: '#' },
             { text: 'Guides', url: '#' },
-            { text: 'API Status', url: '#' },
         ],
     },
     {
@@ -40,9 +37,7 @@ const footerLinks = [
         links: [
             { text: 'Pricing', url: '#' },
             { text: 'Documentation', url: '#' },
-            { text: 'Guides', url: '#' },
-            { text: 'API Status', url: '#' },
-        ],
+            { text: 'Guides', url: '#' },],
     },
 ];
 
@@ -83,9 +78,9 @@ const Footer = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="col-span-2 grid md:grid-cols-4 grid-cols-2 gap-4 mx-auto">
+                    <div className="col-span-2 grid md:grid-cols-4 grid-cols-2 gap-6 mx-auto p-2">
                         {footerLinks.map((column, columnIndex) => (
-                            <div key={columnIndex} className="grid grid-cols-2 gap-4 md:gap-8">
+                            <div key={columnIndex} className="grid grid-cols-2 gap-6 md:gap-8">
                                 {column.links.length > 0 && (
                                     <div>
                                         <h3 className="text-sm font-semibold font-roboto text-gray-600 uppercase tracking-wider">

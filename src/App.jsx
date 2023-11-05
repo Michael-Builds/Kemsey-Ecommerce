@@ -10,7 +10,8 @@ import Mattress from "./pages/products/Mattress/Matress";
 import Outdoor from "./pages/products/Outdoor/Outdoor";
 import Sofa from "./pages/products/Sofa/Sofa";
 import Living_Room from "./pages/products/Living-Room/Living-Room";
-import Kitchen from './pages/products/Kitchen/Kitchen'
+import Kitchen from './pages/products/Kitchen/Kitchen';
+import Product from './pages/products/overview/Product';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/kitchen" element={<Kitchen />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/product" element={<Product />} />
       </Routes>
     </Router>
   )

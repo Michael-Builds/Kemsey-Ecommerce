@@ -12,6 +12,7 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        link: "/product"
     },
     {
         imgSrc: Img2,
@@ -20,6 +21,8 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        link: "/product"
+
     },
     {
         imgSrc: Img3,
@@ -28,6 +31,8 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        link: "/product"
+
     },
     {
         imgSrc: Img4,
@@ -36,6 +41,8 @@ const products = [
         oldPrice: '$55.90',
         rating: 5,
         totalReviews: 150,
+        link: "/product"
+
     },
 ];
 
@@ -49,10 +56,10 @@ const TopNewArrival = () => {
                         <div className="relative">
                             <img src={product.imgSrc} alt={`Product ${index + 1}`} className="w-full" />
                             <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                                <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
+                                <a href={product.link} className="text-white text-lg w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
                                     <BsSearch />
                                 </a>
-                                <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="add to wishlist">
+                                <a href={product.link} className="text-white text-lg w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="add to wishlist">
                                     <BsHeartFill />
                                 </a>
                             </div>

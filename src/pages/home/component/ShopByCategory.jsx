@@ -48,7 +48,7 @@ const ShopByCategory = () => {
                     <div key={index} className="relative rounded-md overflow-hidden group">
                         <img src={category.imgSrc} alt={`Category ${index + 1}`} className="w-full" />
                         <a href={category.link}
-                            className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">
+                            className="absolute inset-0 font-quicksand bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">
                             {category.title}
                         </a>
                     </div>

@@ -8,34 +8,34 @@ import Img6 from '../../../assets/category/category-6.jpg';
 const categories = [
     {
         imgSrc: Img1,
-        title: 'Bedroom',
-        link: "/bedroom",
+        title: "Bedroom",
+        link: '/bedroom',
     },
     {
         imgSrc: Img2,
-        title: 'Mattress',
-        link: "/mattress",
+        title: "Mattress",
+        link: '/mattress',
 
     },
     {
         imgSrc: Img3,
-        title: 'Outdoor',
-        link: "/outdoor",
+        title: "Outdoor",
+        link: '/outdoor',
     },
     {
         imgSrc: Img4,
-        title: 'Sofa',
-        link: "/sofa",
+        title: "Sofa",
+        link: '/sofa',
     },
     {
         imgSrc: Img5,
-        title: 'Living Room',
-        link: "/living-room",
+        title: "Living Room",
+        link: '/living-room',
     },
     {
         imgSrc: Img6,
-        title: 'Kitchen',
-        link: "/kitchen",
+        title: "Kitchen",
+        link: '/kitchen',
     },
 ];
 

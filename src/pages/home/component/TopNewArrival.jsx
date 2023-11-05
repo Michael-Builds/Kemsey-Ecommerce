@@ -5,7 +5,6 @@ import Img4 from '../../../assets/products/product4.jpg';
 import { BsSearch, BsHeartFill, BsStarFill } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 
-
 const products = [
     {
         imgSrc: Img1,

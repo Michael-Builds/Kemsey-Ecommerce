@@ -48,7 +48,7 @@ const ShopByCategory = () => {
             <div className="grid md:grid-cols-3 grid-cols-2 md:gap-6 gap-4">
                 {categories.map((category, index) => (
                     <div key={index} className="relative rounded-md overflow-hidden group">
-                        <img src={category.imgSrc} alt={`Category ${index + 1}`} className="w-full" />
+                        <img src={category.imgSrc} alt={`Category ${index + 1}`} className="w-full" onContextMenu={(e) => e.preventDefault()}/>
 
                         <Link to={category.url}
                             className="absolute inset-0 font-quicksand bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-semibold group-hover:bg-opacity-60 transition">

@@ -44,6 +44,7 @@ const UserProfile = () => {
                 <div className="relative p-4 ">
                     <img
                         src={userImage}
+                        onContextMenu={(e) => e.preventDefault()}
                         className="absolute -my-16 border-4 rounded-full w-24 h-24 object-center object-cover"
                     />
 

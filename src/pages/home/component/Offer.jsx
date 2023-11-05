@@ -6,7 +6,7 @@ const Offer = () => {
     return (
         <div className="container pb-16 md:mt-8 -mt-2">
             <Link to="/shop">
-                <img src={offer} alt="ads" className="w-full" />
+                <img src={offer} alt="ads" className="w-full" onContextMenu={(e) => e.preventDefault()}/>
             </Link>
         </div>
     )

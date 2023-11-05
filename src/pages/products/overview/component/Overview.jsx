@@ -119,6 +119,7 @@ const Overview = () => {
                         src={selectedImage}
                         alt="product"
                         className={`w-full border border-${selectedColor} `}
+                        onContextMenu={(e) => e.preventDefault()}
                     />
 
                     <div className="grid grid-cols-5 gap-4 mt-4">
@@ -129,6 +130,7 @@ const Overview = () => {
                                 alt={`product${index + 2}`}
                                 className="w-full cursor-pointer border"
                                 onClick={() => handleImageClick(image)}
+                                onContextMenu={(e) => e.preventDefault()}
                             />
                         ))}
                     </div>

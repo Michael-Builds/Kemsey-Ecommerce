@@ -381,7 +381,7 @@ const Main = () => {
                     {getFilteredProductsBySearch().slice(0, visibleProducts).map((product, index) => (
                         <div key={index} className="bg-white shadow rounded overflow-hidden group shadow-lg">
                             <div className="relative">
-                                <img src={product.imgSrc} alt={`Product ${index + 1}`} className="w-full cursor-pointer" />
+                                <img src={product.imgSrc} alt={`Product ${index + 1}`} className="w-full cursor-pointer" onContextMenu={(e) => e.preventDefault()}/>
                             </div>
                             <div className="pt-4 pb-3 px-4">
                                 <a href="#">

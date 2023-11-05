@@ -16,7 +16,8 @@ const Main = () => {
                     <div className="px-4 py-3 shadow flex items-center gap-4">
                         <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center">
                             <img src={User} alt="profile"
-                                className="w-full h-full object-cover" />
+                                className="w-full h-full object-cover"
+                                onContextMenu={(e) => e.preventDefault()}/>
                         </div>
                         <div className="flex-grow">
                             <p className="text-gray-600 font-quicksand">Hello,</p>

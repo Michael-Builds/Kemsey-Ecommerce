@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { MdPerson } from "react-icons/md";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
-import Logo from "../../assets/logo.jpg";
+import Logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { Link } from 'react-router-dom';
@@ -111,7 +111,8 @@ export default function Login() {
                         alt="Logo"
                         width={150}
                         height={150}
-                        className="mx-auto rounded-full flex items-center justify-center"
+                        className="mx-auto  flex items-center justify-center"
+                        onContextMenu={(e) => e.preventDefault()}
                     />
 
                     <h2 className="text-center mt-2 font-quicksand md:text-lg mb-2 text-gray-600 font-semibold">
@@ -137,7 +138,7 @@ export default function Login() {
                                     name="email"
                                     onChange={handleInputChange}
                                     value={loginInfo.email}
-                                    className="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-8 focus:outline-none focus:border-blue-500"
+                                    className="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-4 focus:outline-none focus:border-blue-500"
                                     placeholder="Enter your Email"
                                 />
                                 <MdPerson className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -157,7 +158,7 @@ export default function Login() {
                                     name="password"
                                     onChange={handleInputChange}
                                     value={loginInfo.password}
-                                    className="w-full font-quicksand md:text-sm  text-gray-600 border border-gray-300 rounded-md p-2 pl-8 focus:outline-none focus:border-blue-500"
+                                    className="w-full font-quicksand md:text-sm  text-gray-600 border border-gray-300 rounded-md p-2 pl-4 focus:outline-none focus:border-blue-500"
                                     placeholder="Enter your password"
                                 />
                                 {passwordVisible ? (

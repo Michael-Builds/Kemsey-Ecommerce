@@ -1,7 +1,9 @@
 import { RiTwitterXFill } from 'react-icons/ri';
-import Logo from '../../assets/logo.jpg'
+import Logo from '../../assets/logo.png';
 import Method from '../../assets/methods.png'
 import { BsFacebook, BsInstagram, BsGithub } from 'react-icons/bs';
+import { Link } from "react-router-dom";
+
 
 const footerLinks = [
     {
@@ -64,7 +66,10 @@ const Footer = () => {
             <div className="bg-white pt-10 pb-12 border-t border-gray-200 mt-12">
                 <div className="container grid grid-cols-1 ">
                     <div className="col-span-1 space-y-4 mb-6">
-                        <img src={Logo} alt="logo" className="h-16 h-16 rounded-full" />
+                        <Link to='/' onContextMenu={(e) => e.preventDefault()}>
+                            <img src={Logo} alt="logo" className=" h-16 h-16" />
+
+                        </Link>
                         <div className="mr-2">
                             <p className="text-gray-500 font-quicksand">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, hic?
@@ -105,7 +110,7 @@ const Footer = () => {
                     <p className=' font-quicksand text-white md:text-md text-sm '
                     >© {getCurrentYear()} <span className='text-primary md:text-md md:mt-0 mt-4'> Kemsey Store</span>  Developed by  <a href='#' className='font-medium md:text-md text-sm hover:text-primary'> Michael Kabanda</a> </p>
                     <div>
-                        <img src={Method} alt="methods" className="h-6 md:ml-0 ml-[13%] md:mt-0 mt-4" />
+                        <img src={Method} alt="methods" className="h-6 md:ml-0 ml-[13%] md:mt-0 mt-4" onContextMenu={(e) => e.preventDefault()} />
                     </div>
                 </div>
             </div>

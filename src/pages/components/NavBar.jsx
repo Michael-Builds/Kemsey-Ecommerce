@@ -5,7 +5,7 @@ import { CiSearch } from "react-icons/ci";
 import { useState } from "react";
 import User from "../home/component/User";
 import Sidebar from "./SideBar";
-import Logo from '../../assets/logo.jpg';
+import Logo from '../../assets/logo.png';
 
 
 const Navbar = () => {
@@ -20,14 +20,17 @@ const Navbar = () => {
                 </div>
                 <Link to="/">
                     <section className="flex justify-between items-center space-x-2 w-full">
-                        <div className="w-10 h-10 rounded-full overflow-hidden">
+                        <div
+                            className="w-12 h-12 overflow-hidden">
                             <img
                                 src={Logo}
                                 alt=""
                                 className="w-full h-full"
+                                onContextMenu={(e) => e.preventDefault()}
                             />
                         </div>
-                        <h1 className="font-bold text-lg">Kemsey</h1>
+
+                        <h1 className="font-bold text-lg font-quicksand">Kemsey Store</h1>
                     </section>
                 </Link>
 

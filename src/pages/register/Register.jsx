@@ -111,6 +111,7 @@ export default function Register() {
                         width={150}
                         height={150}
                         className="mx-auto md:-mb-2 rounded-full flex items-center justify-center"
+                        onContextMenu={(e) => e.preventDefault()}
                     />
 
                     <h2 className="text-center mt-2 md:-mb-1 font-quicksand md:text-lg mb-2 text-gray-600 font-semibold">

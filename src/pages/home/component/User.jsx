@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
 import { CiUser } from "react-icons/ci";
-import { HiOutlineLightBulb } from "react-icons/hi";
 import { BiHelpCircle } from "react-icons/bi";
 import { TbLogout2 } from "react-icons/tb";
 import { RiFilePaperLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import user from '../../../assets/user.jpeg';
+import { IoMdSettings } from 'react-icons/io';
 
 
 const User = () => {
@@ -48,7 +48,7 @@ const User = () => {
           </div>
           <section className="py-2 border-b">
             <Link
-              to="/profile"
+              to="/account"
               className="flex items-center space-x-3 rounded-lg hover:dark:bg-slate-700 hover:bg-slate-100  py-2 px-3"
             >
               <i>
@@ -81,9 +81,9 @@ const User = () => {
             <div className="flex items-center justify-between rounded-lg hover:dark:bg-slate-700 hover:bg-slate-100  py-2 px-3">
               <Link to="" className="flex items-center space-x-3">
                 <i>
-                  <HiOutlineLightBulb className="md:text-xl" />
+                  <IoMdSettings className="md:text-xl" />
                 </i>
-                <p className="font-quicksand text-md">Light Theme</p>
+                <p className="font-quicksand text-md">Settings</p>
               </Link>
             </div>
             <Link

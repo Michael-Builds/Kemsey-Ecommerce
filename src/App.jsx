@@ -14,6 +14,7 @@ import Kitchen from './pages/products/Kitchen/Kitchen';
 import Product from './pages/products/overview/Product';
 import Checkout from "./pages/checkout/Checkout";
 import Profile from './pages/profile/Profile';
+import Account from './pages/account/Account'
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/product" element={<Product />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
     </Router>
   )

@@ -114,14 +114,14 @@ const UserProfile = () => {
                             <input className="mt-2 text-gray-600 border border-gray-300 focus:outline-none focus:border-blue-500 rounded-lg p-3 w-full border" />
                         </div>
 
-                        <div className="float-right gap-4 flex mt-4 md:mr-4">
+                        <div className="float-right gap-4 flex md:mt-2 mt-4 md:mr-4 ">
                             <button
                                 type="submit"
-                                className="bg-primary font-quicksand text-white px-4 w-24 p-4 rounded-lg"
+                                className="bg-primary font-quicksand text-white px-4 w-24 p-3 rounded-lg"
                             >
                                 Save
                             </button>
-                            <button className="bg-gray-300 font-quicksand text-black p-4 w-24 rounded-lg">
+                            <button className="bg-gray-300 font-quicksand text-black p-3 w-24 rounded-lg">
                                 Cancel
                             </button>
                         </div>

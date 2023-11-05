@@ -88,7 +88,7 @@ const Navbar = () => {
                             className="relative hover:dark:bg-slate-900 hover:bg-slate-100 p-2 rounded-full"
                         >
                             <PiShoppingCartThin className="md:text-xl" />
-                            <div className="absolute top-0 right-0 p-1 h-4 text-xs text-center rounded-full bg-blue-600 text-white flex justify-center items-center">
+                            <div className="absolute top-0 right-0 p-1 h-4 text-xs text-center rounded-full bg-primary text-white flex justify-center items-center">
                                 <p className="text-center justify-center">5</p>
                             </div>
                         </Link>

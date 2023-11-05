@@ -49,7 +49,7 @@ const ShopByCategory = () => {
                         <img src={category.imgSrc} alt={`Category ${index + 1}`} className="w-full" />
 
                         <a href={category.link}
-                            className="absolute inset-0 font-quicksand bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">
+                            className="absolute inset-0 font-quicksand bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-semibold group-hover:bg-opacity-60 transition">
                             {category.title}
                         </a>
                     </div>

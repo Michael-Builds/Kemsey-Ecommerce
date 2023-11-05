@@ -13,21 +13,21 @@ const Features = () => {
                         className="w-12 h-12 object-contain" />
                     <div>
                         <h4 className="font-semibold capitalize font-quicksand text-lg mb-2">Free Shipping</h4>
-                        <p className="text-gray-500 text-sm">Order over $200</p>
+                        <p className="text-gray-500 text-sm font-medium font-quicksand">Order over $200</p>
                     </div>
                 </div>
                 <div className="border border-primary rounded-md px-3 py-6 flex justify-center items-center gap-5">
                     <img src={Img2} alt="Delivery" className="w-12 h-12 object-contain" />
                     <div>
                         <h4 className="font-semibold capitalize font-quicksand text-lg mb-2">Money Returns</h4>
-                        <p className="text-gray-500 text-sm">30 days money returns</p>
+                        <p className="text-gray-500 text-sm font-medium font-quicksand">30 days money returns</p>
                     </div>
                 </div>
                 <div className="border border-primary rounded-md px-3 py-6 flex justify-center items-center gap-5">
                     <img src={Img3} alt="Delivery" className="w-12 h-12 object-contain" />
                     <div>
                         <h4 className="font-semibold capitalize font-quicksand text-lg mb-2">24/7 Support</h4>
-                        <p className="text-gray-500 text-sm">Customer support</p>
+                        <p className="text-gray-500 text-sm font-medium font-quicksand">Customer support</p>
                     </div>
                 </div>
             </div>

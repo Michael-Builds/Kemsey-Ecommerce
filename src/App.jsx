@@ -12,6 +12,7 @@ import Sofa from "./pages/products/Sofa/Sofa";
 import Living_Room from "./pages/products/Living-Room/Living-Room";
 import Kitchen from './pages/products/Kitchen/Kitchen';
 import Product from './pages/products/overview/Product';
+import Checkout from "./pages/checkout/Checkout";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </Router>
   )

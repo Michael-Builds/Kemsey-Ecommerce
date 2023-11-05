@@ -1,7 +1,65 @@
-
-
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+import { useState } from "react";
 
 const Main = () => {
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
+    const [checkoutInfo, setCheckoutInfo] = useState({
+        fname: "",
+        lname: "",
+        company: "",
+        country: "",
+        street: "",
+        city: "",
+        phone: "",
+        email: "",
+    })
+
+    const handleClear = () => {
+        setCheckoutInfo({
+            fname: "",
+            lname: "",
+            company: "",
+            country: "",
+            street: "",
+            city: "",
+            phone: "",
+            email: "",
+        })
+    }
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setCheckoutInfo((prevCheckout) => ({
+            ...prevCheckout,
+            [name]: value,
+        }))
+    }
+
+    const handleCheckout = (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false)
+            swal('Kemsey Store', 'Order Placed Successfully', 'success', {
+                buttons: {
+                    confirm: {
+                        text: 'Okay',
+                        value: true,
+                        visible: true,
+                        className: 'bg-primary font-quicksand focus:outline-none',
+                    },
+                },
+            });
+
+            navigate('/')
+        }, 2000);
+        handleClear();
+    }
+
+
     return (
         <section>
             <div className="container grid md:grid-cols-12 items-start pb-2 pt-4 gap-6">
@@ -10,9 +68,10 @@ const Main = () => {
                 <div className="col-span-8 border border-gray-200 p-4 rounded">
                     <h3 className="text-xl font-bold capitalize font-quicksand mb-6 mt-2">Checkout</h3>
 
-                    <form className="space-y-4 mb-8">
+                    <form className="space-y-4 mb-8" onSubmit={(e) =>
+                        handleCheckout(e)}>
 
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid md:grid-cols-2 gap-4">
                             <div className="space-y-1">
                                 <label
                                     htmlFor="fname"
@@ -20,6 +79,11 @@ const Main = () => {
                                     First Name
                                 </label>
                                 <input
+                                    name="fname"
+                                    id="fname"
+                                    type="text"
+                                    onChange={handleInputChange}
+                                    value={checkoutInfo.fname}
                                     required
                                     className="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-2 focus:outline-none focus:border-blue-500"
                                     placeholder="First Name"
@@ -34,13 +98,18 @@ const Main = () => {
                                 </label>
                                 <input
                                     required
+                                    name="lname"
+                                    id="lname"
+                                    type="text"
+                                    onChange={handleInputChange}
+                                    value={checkoutInfo.lname}
                                     className="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-2 focus:outline-none focus:border-blue-500"
                                     placeholder="Last Name"
                                 />
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4 mt-4">
+                        <div className="grid md:grid-cols-2 gap-4 mt-4">
                             <div className="space-y-1">
                                 <label
                                     htmlFor="company"
@@ -49,6 +118,11 @@ const Main = () => {
                                 </label>
                                 <input
                                     required
+                                    name="company"
+                                    id="company"
+                                    type="text"
+                                    onChange={handleInputChange}
+                                    value={checkoutInfo.company}
                                     className="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-2 focus:outline-none focus:border-blue-500"
                                     placeholder=" Company"
                                 />
@@ -61,6 +135,11 @@ const Main = () => {
                                     Country/Region
                                 </label>
                                 <input
+                                    name="country"
+                                    id="country"
+                                    type="text"
+                                    onChange={handleInputChange}
+                                    value={checkoutInfo.country}
                                     required
                                     className="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-2 focus:outline-none focus:border-blue-500"
                                     placeholder="Country/Region"
@@ -68,7 +147,7 @@ const Main = () => {
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4 mt-4">
+                        <div className="grid md:grid-cols-2 gap-4 mt-4">
                             <div className="space-y-1">
                                 <label
                                     htmlFor="street"
@@ -77,6 +156,11 @@ const Main = () => {
                                 </label>
                                 <input
                                     required
+                                    name="street"
+                                    id="street"
+                                    type="text"
+                                    onChange={handleInputChange}
+                                    value={checkoutInfo.street}
                                     className="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-2 focus:outline-none focus:border-blue-500"
                                     placeholder=" Street address"
                                 />
@@ -90,12 +174,17 @@ const Main = () => {
                                 </label>
                                 <input
                                     required
+                                    name="city"
+                                    id="city"
+                                    type="text"
+                                    onChange={handleInputChange}
+                                    value={checkoutInfo.city}
                                     className="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-2 focus:outline-none focus:border-blue-500"
                                     placeholder="City"
                                 />
                             </div>
                         </div>
-                        <div className="grid grid-cols-2 gap-4 mt-4">
+                        <div className="grid md:grid-cols-2 gap-4 mt-4">
                             <div className="space-y-1">
                                 <label
                                     htmlFor="tel"
@@ -104,6 +193,11 @@ const Main = () => {
                                 </label>
                                 <input
                                     required
+                                    name="phone"
+                                    id="phone"
+                                    type="tel"
+                                    onChange={handleInputChange}
+                                    value={checkoutInfo.phone}
                                     className="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-2 focus:outline-none focus:border-blue-500"
                                     placeholder="Phone Number"
                                 />
@@ -117,6 +211,11 @@ const Main = () => {
                                 </label>
                                 <input
                                     required
+                                    name="email"
+                                    id="email"
+                                    type="email"
+                                    onChange={handleInputChange}
+                                    value={checkoutInfo.email}
                                     className="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-2 focus:outline-none focus:border-blue-500"
                                     placeholder="Email address"
                                 />
@@ -124,7 +223,6 @@ const Main = () => {
                         </div>
 
                     </form>
-
 
                 </div>
 
@@ -142,36 +240,7 @@ const Main = () => {
                             </p>
                             <p className="text-gray-800 font-bold font-quicksand">$320</p>
                         </div>
-                        <div className="flex justify-between">
-                            <div>
-                                <h5 className="text-gray-800 font-semibold font-quicksand">Italian shape sofa</h5>
-                                <p className="text-sm text-gray-600 font-quicksand">Size: M</p>
-                            </div>
-                            <p className="text-gray-600">
-                                x3
-                            </p>
-                            <p className="text-gray-800 font-bold font-quicksand">$320</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <div>
-                                <h5 className="text-gray-800 font-semibold font-quicksand">Italian shape sofa</h5>
-                                <p className="text-sm text-gray-600 font-quicksand">Size: M</p>
-                            </div>
-                            <p className="text-gray-600">
-                                x3
-                            </p>
-                            <p className="text-gray-800 font-bold font-quicksand">$320</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <div>
-                                <h5 className="text-gray-800 font-semibold font-quicksand">Italian shape sofa</h5>
-                                <p className="text-sm text-gray-600 font-quicksand">Size: M</p>
-                            </div>
-                            <p className="text-gray-600">
-                                x3
-                            </p>
-                            <p className="text-gray-800 font-bold font-quicksand">$320</p>
-                        </div>
+                    
                     </div>
 
                     <div className="flex mt-2 font-quicksand justify-between border-b border-gray-200  text-gray-800 font-medium py-3 uppercas">
@@ -189,17 +258,22 @@ const Main = () => {
                         <p>$1280</p>
                     </div>
 
-                    <div className="flex items-center mb-4 mt-2">
-                        <input type="checkbox" name="aggrement" id="aggrement"
-                            className="text-primary focus:ring-0 rounded-sm cursor-pointer w-3 h-3" />
-                        <label className="text-gray-600 ml-3 cursor-pointer text-sm font-quicksand">I agree to the <a href="#"
-                            className="text-primary">terms & conditions</a>
-                        </label>
-                    </div>
+                    <form onSubmit={handleCheckout}>
+                        <div className="flex items-center mb-4 mt-2">
+                            <input type="checkbox" name="aggrement" id="aggrement"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer w-3 h-3" />
+                            <label className="text-gray-600 ml-3 cursor-pointer text-sm font-quicksand">I agree to the <a href="#"
+                                className="text-primary">terms & conditions</a>
+                            </label>
+                        </div>
+                        <button type="submit"
+                            className="block w-full py-3 px-4 text-center font-quicksand text-white bg-primary border border-primary rounded-md transition font-medium">
+                            {loading ? " Placing order..." : "Place Order"}
 
-                    <a href="#"
-                        className="block w-full py-3 px-4 text-center font-quicksand text-white bg-primary border border-primary rounded-md hover:bg-transparent hover:text-primary transition font-medium">Place
-                        order</a>
+                        </button>
+                    </form>
+
+
                 </div>
 
             </div>

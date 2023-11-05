@@ -48,7 +48,7 @@ const User = () => {
           </div>
           <section className="py-2 border-b">
             <Link
-              to="/login"
+              to="/profile"
               className="flex items-center space-x-3 rounded-lg hover:dark:bg-slate-700 hover:bg-slate-100  py-2 px-3"
             >
               <i>

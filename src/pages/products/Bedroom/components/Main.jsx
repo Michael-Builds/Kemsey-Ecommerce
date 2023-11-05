@@ -9,6 +9,8 @@ import Img8 from '../../../../assets/products/product8.jpg';
 import { useState } from 'react';
 import { BsStarFill, BsGridFill } from 'react-icons/bs';
 import { FaListUl } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import { AiOutlineEdit } from 'react-icons/ai';
 
 const products = [
     {
@@ -19,6 +21,8 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Furniture',
+        url: "/product"
+
     },
     {
         imgSrc: Img2,
@@ -28,6 +32,8 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Bedroom',
+        url: "/product"
+
     },
     {
         imgSrc: Img3,
@@ -37,6 +43,8 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Furniture',
+        url: "/product"
+
     },
     {
         imgSrc: Img4,
@@ -46,6 +54,8 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Bedroom',
+        url: "/product"
+
     },
     {
         imgSrc: Img5,
@@ -55,6 +65,8 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Bedroom',
+        url: "/product"
+
     },
     {
         imgSrc: Img6,
@@ -64,6 +76,8 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Furniture',
+        url: "/product"
+
     },
     {
         imgSrc: Img7,
@@ -73,6 +87,8 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Furniture',
+        url: "/product"
+
     },
     {
         imgSrc: Img8,
@@ -82,6 +98,8 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Bedroom',
+        url: "/product"
+
     },
 ];
 
@@ -381,6 +399,12 @@ const Main = () => {
                         <div key={index} className="bg-white shadow rounded overflow-hidden group shadow-lg">
                             <div className="relative">
                                 <img src={product.imgSrc} alt={`Product ${index + 1}`} className="w-full cursor-pointer" />
+                                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+                                    <Link to={product.url} className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
+                                        <AiOutlineEdit />
+                                    </Link>
+                                 
+                                </div>
                             </div>
                             <div className="pt-4 pb-3 px-4">
                                 <a href="#">
@@ -399,11 +423,13 @@ const Main = () => {
                                     <div className="text-sm text-gray-500 font-quicksand ml-3">({product.totalReviews})</div>
                                 </div>
                             </div>
+
+
                             <a
                                 href="#"
                                 className="block w-full py-1 text-center text-white bg-primary font-quicksand border border-primary rounded-b hover-bg-transparent hover-text-primary transition"
                                 onClick={() => addToCart(product)} // Add to cart on click
-                                disabled={isProductInCart(product)} // Disable if the product is already in the cart
+                                disabled={isProductInCart(product)}
                             >
                                 {isProductInCart(product) ? 'Added to Cart' : 'Add to Cart'}
                             </a>

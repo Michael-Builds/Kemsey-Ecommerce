@@ -217,7 +217,7 @@ export default function Register() {
                             className=" py-2 px-4 rounded font-quicksand md:text-sm  text-center w-full transition-colors duration-300 bg-gradient-to-b bg-primary text-white hover:bg-primary disabled:bg-primary"
                             type="submit"
                             disabled={loading}>
-                            {loading ? "Please wait.. logging in" : "Register"}
+                            {loading ? "Registering...." : "Register"}
                         </button>
                         <div className="text-center">
                             <Link to="/login" className="hover:underline font-quicksand md:text-sm font-bold text-blue-500">

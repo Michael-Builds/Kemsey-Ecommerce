@@ -2,8 +2,10 @@ import Img1 from '../../../assets/products/product1.jpg';
 import Img2 from '../../../assets/products/product2.jpg';
 import Img3 from '../../../assets/products/product3.jpg';
 import Img4 from '../../../assets/products/product4.jpg';
-import { BsSearch, BsHeartFill, BsStarFill } from 'react-icons/bs';
+import { BsStarFill } from 'react-icons/bs';
 import { Link } from "react-router-dom";
+import { AiOutlineEdit } from 'react-icons/ai';
+
 
 const products = [
     {
@@ -57,12 +59,10 @@ const TopNewArrival = () => {
                         <div className="relative">
                             <img src={product.imgSrc} alt={`Product ${index + 1}`} className="w-full" />
                             <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                                <Link to={product.url} className="text-white text-lg w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
-                                    <BsSearch />
+                                <Link to={product.url} className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
+                                    <AiOutlineEdit />
                                 </Link>
-                                <Link to={product.url} className="text-white text-lg w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="add to wishlist">
-                                    <BsHeartFill />
-                                </Link>
+
                             </div>
                         </div>
                         <div className="pt-4 pb-3 px-4">
@@ -82,7 +82,8 @@ const TopNewArrival = () => {
                                 <div className="text-sm text-gray-500 font-quicksand ml-3">({product.totalReviews})</div>
                             </div>
                         </div>
-                        <Link to="#" className="block w-full py-1 text-center text-white bg-primary font-quicksand border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add to cart
+                        <Link to="#" className="block w-full py-1 text-center text-white bg-primary font-quicksand border border-primary hover:bg-transparent hover:text-primary transition">
+                            Add to cart
                         </Link>
                     </div>
                 ))}

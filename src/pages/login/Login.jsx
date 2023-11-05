@@ -178,7 +178,7 @@ export default function Login() {
                             className=" py-2 px-4 rounded font-quicksand md:text-sm  text-center w-full transition-colors duration-300 bg-gradient-to-b bg-primary text-white hover:bg-primary disabled:bg-primary"
                             type="submit"
                             disabled={loading}>
-                            {loading ? "Please wait.. logging in" : "Login"}
+                            {loading ? "Logging In....." : "Login"}
                         </button>
 
                         <div className="text-center pt-2">

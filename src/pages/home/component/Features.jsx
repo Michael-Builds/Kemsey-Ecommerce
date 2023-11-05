@@ -19,7 +19,7 @@ const Features = () => {
                 <div className="border border-primary rounded-md px-3 py-6 flex justify-center items-center gap-5">
                     <img src={Img2} alt="Delivery" className="w-12 h-12 object-contain" />
                     <div>
-                        <h4 className="font-semibold capitalize font-quicksand text-lg mb-2">Money Rturns</h4>
+                        <h4 className="font-semibold capitalize font-quicksand text-lg mb-2">Money Returns</h4>
                         <p className="text-gray-500 text-sm">30 days money returs</p>
                     </div>
                 </div>

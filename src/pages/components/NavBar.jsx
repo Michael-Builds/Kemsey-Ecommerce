@@ -6,16 +6,11 @@ import { useState } from "react";
 import User from "../home/component/User";
 import Sidebar from "./SideBar";
 import Logo from '../../assets/logo.jpg';
-import PropTypes from "prop-types";
-import { useCart } from './useCart';
+
 
 const Navbar = () => {
-
     const [navToggle, setNavToggle] = useState(false);
     const [searchToggle, setSearchToggle] = useState(true);
-
-    // Calculate the total number of items in the cart
-    const { cartItemCount } = useCart();
 
     return (
         <section className="sticky z-50 top-0 inset-x-0 bg-white dark:bg-slate-950 dark:text-slate-300 shadow-md">
@@ -94,7 +89,7 @@ const Navbar = () => {
                         >
                             <PiShoppingCartThin className="md:text-xl" />
                             <div className="absolute top-0 right-0 p-1 h-4 text-xs text-center rounded-full bg-blue-600 text-white flex justify-center items-center">
-                                <p className="text-center justify-center">{cartItemCount}</p>
+                                <p className="text-center justify-center">5</p>
                             </div>
                         </Link>
                     </ul>
@@ -126,8 +121,6 @@ const Navbar = () => {
     );
 };
 
-Navbar.propTypes = {
-    cartItems: PropTypes.array.isRequired, // Define the PropTypes for cartItems
-};
+
 
 export default Navbar;

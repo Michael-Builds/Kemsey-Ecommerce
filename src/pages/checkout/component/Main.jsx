@@ -1,34 +1,71 @@
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { useState } from "react";
+import { CountryDropdown } from 'react-country-region-selector';
+import PropTypes from 'prop-types';
+
 
 const Main = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
     const [checkoutInfo, setCheckoutInfo] = useState({
-        fname: "",
-        lname: "",
-        company: "",
-        country: "",
-        street: "",
-        city: "",
-        phone: "",
-        email: "",
-    })
+        fname: '',
+        lname: '',
+        company: '',
+        country: '',
+        street: '',
+        city: '',
+        phone: '',
+        email: '',
+    });
 
     const handleClear = () => {
         setCheckoutInfo({
-            fname: "",
-            lname: "",
-            company: "",
-            country: "",
-            street: "",
-            city: "",
-            phone: "",
-            email: "",
-        })
-    }
+            fname: '',
+            lname: '',
+            company: '',
+            country: '',
+            street: '',
+            city: '',
+            phone: '',
+            email: '',
+        });
+    };
+    const handleCheckout = (e) => {
+        e.preventDefault();
+
+        // Check if any of the required fields are empty
+        const requiredFields = ['fname', 'lname', 'country', 'street', 'city', 'phone', 'email'];
+        const emptyFields = requiredFields.filter((fieldName) => !checkoutInfo[fieldName]);
+
+        if (emptyFields.length > 0) {
+            // Display an alert to the user indicating which fields are empty
+
+            swal('Kemsey Store', 'Please fill the empty inputs', 'warning');
+        } else {
+            // All required fields are filled, proceed with the checkout
+            setLoading(true);
+            setTimeout(() => {
+                setLoading(false);
+                swal('Kemsey Store', 'Order Placed Successfully', 'success', {
+                    buttons: {
+                        confirm: {
+                            text: 'Okay',
+                            value: true,
+                            visible: true,
+                            className: 'bg-primary font-quicksand focus:outline-none',
+                        },
+                    },
+                });
+
+                navigate('/');
+                handleClear();
+            }, 2000);
+        }
+    };
+
+
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -38,26 +75,6 @@ const Main = () => {
         }))
     }
 
-    const handleCheckout = (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setTimeout(() => {
-            setLoading(false)
-            swal('Kemsey Store', 'Order Placed Successfully', 'success', {
-                buttons: {
-                    confirm: {
-                        text: 'Okay',
-                        value: true,
-                        visible: true,
-                        className: 'bg-primary font-quicksand focus:outline-none',
-                    },
-                },
-            });
-
-            navigate('/')
-        }, 2000);
-        handleClear();
-    }
 
 
     return (
@@ -68,9 +85,7 @@ const Main = () => {
                 <div className="col-span-8 border border-gray-200 p-4 rounded">
                     <h3 className="text-xl font-bold capitalize font-quicksand mb-6 mt-2">Checkout</h3>
 
-                    <form className="space-y-4 mb-8" onSubmit={(e) =>
-                        handleCheckout(e)}>
-
+                    <form className="space-y-4 mb-8" onSubmit={handleCheckout}>
                         <div className="grid md:grid-cols-2 gap-4">
                             <div className="space-y-1">
                                 <label
@@ -134,15 +149,11 @@ const Main = () => {
                                     className="block font-quicksand md:text-md text-gray-600 font-medium">
                                     Country/Region
                                 </label>
-                                <input
-                                    name="country"
-                                    id="country"
-                                    type="text"
-                                    onChange={handleInputChange}
-                                    value={checkoutInfo.country}
+                                <CountryDropdown
                                     required
-                                    className="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-2 focus:outline-none focus:border-blue-500"
-                                    placeholder="Country/Region"
+                                    value={checkoutInfo.country}
+                                    onChange={(value) => handleInputChange({ target: { name: 'country', value } })}
+                                    classes="w-full text-gray-600 border font-quicksand md:text-sm border-gray-300 rounded-md p-2 pl-2 focus:outline-none focus:border-blue-500"
                                 />
                             </div>
                         </div>
@@ -240,7 +251,7 @@ const Main = () => {
                             </p>
                             <p className="text-gray-800 font-bold font-quicksand">$320</p>
                         </div>
-                    
+
                     </div>
 
                     <div className="flex mt-2 font-quicksand justify-between border-b border-gray-200  text-gray-800 font-medium py-3 uppercas">
@@ -280,4 +291,13 @@ const Main = () => {
         </section>
     )
 }
+// Define PropTypes for your component
+Main.propTypes = {
+    handleCountryChange: PropTypes.func.isRequired,
+    handleRegionChange: PropTypes.func.isRequired,
+    selectedCountry: PropTypes.string.isRequired,
+    selectedRegion: PropTypes.string.isRequired,
+    // You can add more PropTypes for other props if needed
+};
+
 export default Main;

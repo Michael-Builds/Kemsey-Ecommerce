@@ -29,7 +29,7 @@ const Main = () => {
                     <div className="mt-6 bg-white shadow rounded p-4 divide-y divide-gray-200 space-y-4 text-gray-600">
                         <div className="space-y-1 pl-8">
                             <div className="relative font-quicksand mb-2 text-primary block font-medium capitalize transition">
-                                <span className="absolute -left-8 top-0 text-base">
+                                <span className="absolute -left-8 top-1 text-base">
                                     <BsPersonVcardFill />
                                 </span>
                                 Manage Account
@@ -48,7 +48,7 @@ const Main = () => {
 
                         <div className="space-y-1 pl-8 pt-4">
                             <div className="relative mb-2 font-quicksand hover:text-primaryblock font-medium capitalize transition">
-                                <span className="absolute -left-8 top-0 text-base">
+                                <span className="absolute -left-8 top-1 text-base">
                                     <FaBoxArchive />
                                 </span>
                                 My order history
@@ -66,7 +66,7 @@ const Main = () => {
 
                         <div className="space-y-1 pl-8 pt-4">
                             <a href="#" className="relative font-quicksand mb-2 hover:text-primary block font-medium capitalize transition">
-                                <span className="absolute -left-8 top-0 text-base">
+                                <span className="absolute -left-8 top-1 text-base">
                                     <BsFillCreditCardFill />
                                 </span>
                                 Payment methods
@@ -78,7 +78,7 @@ const Main = () => {
 
                         <div className="space-y-1 pl-8 pt-4">
                             <Link to='/wishlist' className="relative mb-4 font-quicksand hover:text-primary block font-medium capitalize transition flex items-center">
-                                <span className="absolute -left-8 top-0 text-base">
+                                <span className="absolute -left-8 top-1 text-base">
                                     <BsFillHeartFill />
                                 </span>
                                 My wishlist
@@ -88,7 +88,7 @@ const Main = () => {
 
                         <div className="space-y-1 pl-8 pt-4  ">
                             <Link to="#" className="relative font-quicksand mb-4 hover:text-primary block font-medium capitalize transition">
-                                <span className="absolute -left-8 top-0 text-base">
+                                <span className="absolute -left-8 top-1 text-base">
                                     <TbLogout2 />
                                 </span>
                                 Logout

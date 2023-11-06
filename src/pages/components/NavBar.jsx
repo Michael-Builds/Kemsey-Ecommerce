@@ -38,37 +38,37 @@ const Navbar = () => {
                     <ul className="hidden lg:flex items-center font-quicksand text-md font-medium">
                         <Link
                             to="/"
-                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
+                            className="hover:dark:bg-slate-900 md:text-md  hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
                         >
                             Home
                         </Link>
                         <Link
                             to="/shop"
-                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
+                            className="hover:dark:bg-slate-900 md:text-md  hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
                         >
                             Shop
                         </Link>
                         <Link
                             to="/sell"
-                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
+                            className="hover:dark:bg-slate-900 md:text-md hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
                         >
                             Sell
                         </Link>
                         <Link
                             to="/products"
-                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
+                            className="hover:dark:bg-slate-900 flex items-center md:text-md hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[120px] h-[40px] flex items-center justify-center"
                         >
                             About Us
                         </Link>
                         <Link
                             to="/products"
-                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
+                            className="hover:dark:bg-slate-900 md:text-md hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
                         >
                             Contact
                         </Link>
                         <Link
                             to="/blog"
-                            className="hover:dark:bg-slate-900 md:text-sm hover:bg-slate-200 py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
+                            className="hover:dark:bg-slate-900 md:text-md font-quicksand hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
                         >
                             Partner
                         </Link>
@@ -100,14 +100,14 @@ const Navbar = () => {
                 {!searchToggle && (
                     <input
                         type="text"
-                        className="py-2 px-3 w-1/2 rounded-md text-gray-600 border border-gray-500 focus:outline-none"
+                        className="py-2 px-3 w-1/2 rounded-md font-quicksand text-gray-600 border border-gray-500 focus:outline-none"
                         placeholder="Search items ..."
                     />
                 )}
                 {!searchToggle && (
                     <button
                         onClick={() => setSearchToggle(!searchToggle)}
-                        className="hover:dark:bg-slate-900 hover:bg-slate-400 py-2 px-5 rounded-md bg-slate-200 font-quicksand "
+                        className="hover:dark:bg-slate-900 -ml-[25%] hover:bg-primary hover:text-white py-2 px-5 rounded-md bg-slate-200 font-quicksand "
                     >
                         Cancel
                     </button>

@@ -69,7 +69,7 @@ const Hero = () => {
                 {carouselItems.map((item, index) => (
                     <div key={index} className="relative w-full flex items-center justify-center flex-col">
                         <div className="carousel-img relative w-full h-[25rem] sm:h-[35rem] md:h-[35rem] lg:h-120 xl:h-[35rem] text-right overflow-hidden">
-                            <img src={item.image} alt="Image" className="object-cover object-center h-full w-full" />
+                            <img src={item.image} alt="Image" className="object-cover object-center object-contain object-fit h-full w-full" />
                             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-10"></div>
                         </div>
                         <div className="absolute pl-[12%] carousel-text flex flex-col items-start z-20 left-0 -mb-4 md:mb-0">

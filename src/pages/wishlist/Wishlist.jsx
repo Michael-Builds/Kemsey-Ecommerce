@@ -1,12 +1,13 @@
+
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer';
-import Breadcrumb from './components/Breadcrumb';
-import Main from './components/Main'
+import Breadcrumb from './component/Breadcrumb';
+import Main from './component/Main'
 
 
-const Kitchen = () => {
+const Wishlist = () => {
     const location = useLocation();
 
     useEffect(() => {
@@ -23,4 +24,4 @@ const Kitchen = () => {
         </>
     );
 };
-export default Kitchen;
+export default Wishlist;

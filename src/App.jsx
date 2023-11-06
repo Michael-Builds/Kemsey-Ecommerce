@@ -14,7 +14,8 @@ import Kitchen from './pages/products/Kitchen/Kitchen';
 import Product from './pages/products/overview/Product';
 import Checkout from "./pages/checkout/Checkout";
 import Profile from './pages/profile/Profile';
-import Account from './pages/account/Account'
+import Account from './pages/account/Account';
+import Wishlist from './pages/wishlist/Wishlist';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
     </Router>
   )

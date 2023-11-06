@@ -5,9 +5,35 @@ import { BsPersonVcardFill, BsFillHeartFill } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 import { FaBoxArchive } from 'react-icons/fa6';
 import { BsFillCreditCardFill } from 'react-icons/bs';
+import Img1 from '../../../assets/products/product7.jpg';
+import Img2 from '../../../assets/products/product8.jpg';
+import { FaTrash } from 'react-icons/fa';
+import React from 'react';
 
 
 const Main = () => {
+
+    const [wishlist, setWishlist] = React.useState([
+        {
+            name: 'Sofa',
+            availability: 'In Stock',
+            price: '$320.00',
+            image: Img1,
+        },
+        {
+            name: 'Sofa',
+            availability: 'In Stock',
+            price: '$320.00',
+            image: Img2,
+        },
+    ]);
+
+    const deleteItem = (index) => {
+        const updatedWishlist = [...wishlist];
+        updatedWishlist.splice(index, 1);
+        setWishlist(updatedWishlist);
+    };
+
     return (
         <section>
             <div className="container grid md:grid-cols-12 items-start gap-6 pt-4 md:pb-16 pb-2">
@@ -28,12 +54,12 @@ const Main = () => {
 
                     <div className="mt-6 bg-white shadow rounded p-4 divide-y divide-gray-200 space-y-4 text-gray-600">
                         <div className="space-y-1 pl-8">
-                            <div className="relative font-quicksand mb-2 text-primary block font-medium capitalize transition">
+                            <Link to='/account' className="relative font-quicksand mb-2 hover:text-primary block font-medium capitalize transition">
                                 <span className="absolute -left-8 top-0 text-base">
                                     <BsPersonVcardFill />
                                 </span>
                                 Manage Account
-                            </div>
+                            </Link>
 
                             <Link to="/profile" className="relative font-quicksand hover:text-primary block capitalize transition">
                                 Profile information
@@ -77,13 +103,12 @@ const Main = () => {
                         </div>
 
                         <div className="space-y-1 pl-8 pt-4">
-                            <Link to='/wishlist' className="relative mb-4 font-quicksand hover:text-primary block font-medium capitalize transition flex items-center">
+                            <Link to='/wishlist' className="relative mb-4 font-quicksand text-primary block font-medium capitalize transition flex items-center">
                                 <span className="absolute -left-8 top-0 text-base">
                                     <BsFillHeartFill />
                                 </span>
                                 My wishlist
                             </Link>
-
                         </div>
 
                         <div className="space-y-1 pl-8 pt-4  ">
@@ -99,56 +124,41 @@ const Main = () => {
                 </div>
 
 
-                {/* Main Component */}
-                <div className="col-span-9 grid md:grid-cols-3 gap-6">
-                    <div className="shadow rounded bg-white px-4 pt-6 pb-8">
-                        <div className="flex items-center justify-between mb-4">
-                            <h3 className="font-simbold text-gray-800 text-lg font-quicksand">Personal Profile</h3>
-                            <Link to="#" className="text-primary font-quicksand">
-                                Edit
+                {/* Wishlist Component */}
+                <div className="col-span-9 space-y-4">
+                    {wishlist.map((item, index) => (
+                        <div key={index} className="flex items-center justify-between border md:gap-6 gap-2 p-4 border-gray-200 rounded">
+                            <div className="w-28">
+                                <img src={item.image} alt={`product ${index + 1}`} className="w-full" />
+                            </div>
+                            <div className="md:w-1/3">
+                                <h2 className="text-gray-800 md:text-xl text-md font-semibold uppercase font-quicksand">
+                                    {item.name}
+                                </h2>
+                                <p className="text-gray-500 text-sm font-quicksand">
+                                    Availability:{' '}
+                                    <span className={`text-${item.availability === 'In Stock' ? 'green' : 'red'}-600 font-semibold inline-block`}>
+                                        {item.availability}
+                                    </span>
+                                </p>
+                            </div>
+                            <div className="text-primary md:text-lg text-sm md:-ml-6 -ml-2 font-semibold font-quicksand">{item.price}</div>
+                            <Link
+                                to="#"
+                                className={`md:px-6 px-4 md:py-2 py-1 text-center font-quicksand text-sm text-white bg-primary border border-primary rounded transition font-medium ${item.availability === 'Out of Stock' ? 'cursor-not-allowed' : ''
+                                    }`}
+                            >
+                                Add to cart
                             </Link>
+                            <div className="text-gray-600 md:-ml-6 ml-0 cursor-pointer  hover:text-primary" onClick={() => deleteItem(index)}>
+                                <FaTrash />
+                            </div>
                         </div>
-                        <div className="space-y-2">
-                            <h4 className="text-gray-700 font-semibold font-quicksand">Kabanda Michael</h4>
-                            <p className="text-gray-800 font-quicksand">Ho, Volta Region</p>
-                            <p className="text-gray-800 font-quicksand">michaelkpantiramp@gmail</p>
-                            <p className="text-gray-800 font-quicksand">+233 54 454 1587</p>
-                        </div>
-                    </div>
-
-                    <div className="shadow rounded bg-white px-4 pt-6 pb-8">
-                        <div className="flex items-center justify-between mb-4">
-                            <h3 className="font-semibold text-gray-800 text-lg font-quicksand">Shipping address</h3>
-                            <Link href="#" className="text-primary font-quicksand">
-                                Edit
-                            </Link>
-                        </div>
-                        <div className="space-y-1">
-                            <h4 className="text-gray-700 font-medium font-quicksand">Kabanda Michael</h4>
-                            <p className="text-gray-800 font-quicksand">Ho, Volta Region</p>
-                            <p className="text-gray-800 font-quicksand">Ho-Poly</p>
-                            <p className="text-gray-800 font-quicksand">+233 54 454 1587</p>
-                        </div>
-                    </div>
-
-                    <div className="shadow rounded bg-white px-4 pt-6 pb-8">
-                        <div className="flex items-center justify-between mb-4">
-                            <h3 className="font-semibold text-gray-800 text-lg font-quicksand">Billing address</h3>
-                            <Link href="#" className="text-primary font-quicksand">
-                                Edit
-                            </Link>
-                        </div>
-                        <div className="space-y-1">
-                            <h4 className="text-gray-700 font-medium font-quicksand">Kabanda Michael</h4>
-                            <p className="text-gray-800 font-quicksand">Ho, Volta Region</p>
-                            <p className="text-gray-800 font-quicksand">Ho-Poly</p>
-                            <p className="text-gray-800 font-quicksand">+233 54 454 1587</p>
-                        </div>
-                    </div>
-
+                    ))}
                 </div>
 
             </div>
+
         </section>
     )
 }

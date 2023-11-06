@@ -66,7 +66,7 @@ const User = () => {
               <p className="font-quicksand text-md">My Order</p>
             </Link>
             <Link
-              to=""
+              to="/wishlist"
               className="flex items-center space-x-3 rounded-lg hover:dark:bg-slate-700 hover:bg-slate-100  py-2 px-3"
             >
               <i>

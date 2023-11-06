@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { MdPerson } from "react-icons/md";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
-import Logo from "../../assets/logo.jpg";
+import Logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { Link } from 'react-router-dom';

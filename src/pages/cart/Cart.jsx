@@ -1,14 +1,15 @@
+
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer';
-import Breadcrumb from './components/Breadcrumb';
-import Main from './components/Main';
+import Breadcrumb from './component/Breadcrumb';
+import Main from './component/Main';
 import BottomTabNavigator from '../components/BottomNavigator';
 import PreLoader from '../components/PreLoader';
 
 
-const Kitchen = () => {
+const Bedroom = () => {
     const location = useLocation();
 
     useEffect(() => {
@@ -65,4 +66,4 @@ const Kitchen = () => {
         </>
     );
 };
-export default Kitchen;
+export default Bedroom;

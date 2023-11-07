@@ -20,7 +20,7 @@ const Mattress = () => {
 
     // Function to check screen width and set the isMobile state
     const checkIsMobile = () => {
-        if (window.innerWidth <= 800) { // You can adjust this width as needed
+        if (window.innerWidth <= 884) { // You can adjust this width as needed
             setIsMobile(true);
         } else {
             setIsMobile(false);

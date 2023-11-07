@@ -65,8 +65,6 @@ const Main = () => {
         }
     };
 
-
-
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setCheckoutInfo((prevCheckout) => ({

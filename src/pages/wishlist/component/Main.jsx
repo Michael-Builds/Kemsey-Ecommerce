@@ -150,7 +150,7 @@ const Main = () => {
                             </div>
                             <div className="text-primary md:text-lg text-sm md:-ml-6 -ml-2 font-semibold font-quicksand">{item.price}</div>
                             <Link
-                                to="#"
+                                to="/cart"
                                 className={`md:px-6 px-4 md:py-2 py-1 text-center font-quicksand text-sm text-white bg-primary border border-primary rounded transition font-medium ${item.availability === 'Out of Stock' ? 'cursor-not-allowed' : ''
                                     }`}
                             >

@@ -113,7 +113,7 @@ const products = [
 ];
 
 const Recommended = () => {
-    const [visibleProducts, setVisibleProducts] = useState(4);
+    const [visibleProducts, setVisibleProducts] = useState(8);
     const showMore = () => {
         setVisibleProducts(visibleProducts + 4);
     };

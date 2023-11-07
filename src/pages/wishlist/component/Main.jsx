@@ -26,6 +26,12 @@ const Main = () => {
             price: '$320.00',
             image: Img2,
         },
+        {
+            name: 'Sofa',
+            availability: 'Out of Stock',
+            price: '$320.00',
+            image: Img2,
+        },
     ]);
 
     const deleteItem = (index) => {
@@ -125,7 +131,7 @@ const Main = () => {
                 {/* Wishlist Component */}
                 <div className="col-span-9 space-y-4">
                     {wishlist.map((item, index) => (
-                        <div key={index} className="flex items-center justify-between border md:gap-6 gap-2 p-4 border-gray-200 rounded md:h-0 h-32">
+                        <div key={index} className="flex items-center justify-between border md:gap-6 gap-2 p-4 border-gray-200 rounded">
                             <div className="w-28">
                                 <img src={item.image} alt={`product ${index + 1}`} className="w-full" />
                             </div>
@@ -135,7 +141,9 @@ const Main = () => {
                                 </h2>
                                 <p className="text-gray-500 text-sm font-quicksand">
                                     Availability:{' '}
-                                    <span className={`text-${item.availability === 'In Stock' ? 'green' : 'red'}-600 font-semibold inline-block`}>
+                                    <span
+                                        className={`text-${item.availability === 'In Stock' ? 'green' : 'red'}-600 font-semibold inline-block`}
+                                    >
                                         {item.availability}
                                     </span>
                                 </p>

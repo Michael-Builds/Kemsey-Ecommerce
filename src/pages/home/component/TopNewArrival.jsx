@@ -6,6 +6,9 @@ import { BsStarFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { AiFillEye } from 'react-icons/ai';
 import { BsFillHeartFill } from 'react-icons/bs';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const products = [
     {
@@ -54,6 +57,18 @@ const products = [
     },
 ];
 
+
+const handleAddToCart = (productTitle) => {
+    // This function will be called when the "Add to cart" button is clicked.
+    toast.success(`${productTitle} added to cart`, {
+        position: toast.POSITION.TOP_CENTER, // Set the position to top center
+        className: "bg-gray-800 text-white py-2 px-4 rounded-lg", // Add Tailwind CSS classes for styling
+        autoClose: 3000, // Adjust the duration (in milliseconds) the toast is displayed
+        closeOnClick: true, // Close the toast when clicked
+    });
+};
+
+
 const TopNewArrival = () => {
     return (
         <div className="container pb-16 md:mt-4 -mt-2">
@@ -96,12 +111,16 @@ const TopNewArrival = () => {
                                 <div className="text-sm text-gray-500 font-quicksand ml-3">({product.totalReviews})</div>
                             </div>
                         </div>
-                        <Link to="#" className="block w-full py-1 text-center text-white bg-primary font-quicksand border border-primary hover:bg-transparent hover:text-primary transition">
+                        <button
+                            onClick={() => handleAddToCart(product.title)}
+                            className="block w-full py-1 text-center text-white bg-primary font-quicksand border border-primary hover:bg-transparent hover:text-primary transition"
+                        >
                             Add to cart
-                        </Link>
+                        </button>
                     </div>
                 ))}
             </div>
+            <ToastContainer />
         </div>
     );
 }

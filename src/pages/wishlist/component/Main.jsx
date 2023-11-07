@@ -9,7 +9,8 @@ import Img1 from '../../../assets/products/product7.jpg';
 import Img2 from '../../../assets/products/product8.jpg';
 import { FaTrash } from 'react-icons/fa';
 import React from 'react';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Main = () => {
 
@@ -39,6 +40,17 @@ const Main = () => {
         updatedWishlist.splice(index, 1);
         setWishlist(updatedWishlist);
     };
+
+    const handleAddToCart = (productTitle) => {
+        // This function will be called when the "Add to cart" button is clicked.
+        toast.success(`${productTitle} added to cart`, {
+            position: toast.POSITION.TOP_CENTER, // Set the position to top center
+            className: "bg-gray-800 text-white py-2 px-4 rounded-lg", // Add Tailwind CSS classes for styling
+            autoClose: 3000, // Adjust the duration (in milliseconds) the toast is displayed
+            closeOnClick: true, // Close the toast when clicked
+        });
+    };
+
 
     return (
         <section>
@@ -149,13 +161,14 @@ const Main = () => {
                                 </p>
                             </div>
                             <div className="text-primary md:text-lg text-sm md:-ml-6 -ml-2 font-semibold font-quicksand">{item.price}</div>
-                            <Link
-                                to="/cart"
+                            <button
+                                onClick={() => handleAddToCart(item.name)}
+
                                 className={`md:px-6 px-4 md:py-2 py-1 text-center font-quicksand text-sm text-white bg-primary border border-primary rounded transition font-medium ${item.availability === 'Out of Stock' ? 'cursor-not-allowed' : ''
                                     }`}
                             >
                                 Add to cart
-                            </Link>
+                            </button>
                             <div className="text-gray-600 md:-ml-6 ml-0 cursor-pointer  hover:text-primary" onClick={() => deleteItem(index)}>
                                 <FaTrash />
                             </div>
@@ -164,6 +177,7 @@ const Main = () => {
                 </div>
 
             </div>
+            <ToastContainer />
 
         </section>
     )

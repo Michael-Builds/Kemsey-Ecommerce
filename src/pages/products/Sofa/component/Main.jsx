@@ -13,6 +13,8 @@ import { FaListUl } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import { AiFillEye } from 'react-icons/ai';
 import { BsFillHeartFill } from 'react-icons/bs';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const products = [
     {
@@ -168,18 +170,17 @@ const Main = () => {
         }
     };
 
-    const [cartItems, setCartItems] = useState([]);
 
-    // Function to add a product to the cart
-    const addToCart = (product) => {
-        setCartItems([...cartItems, product]);
+
+    const handleAddToCart = (productTitle) => {
+        // This function will be called when the "Add to cart" button is clicked.
+        toast.success(`${productTitle} added to cart`, {
+            position: toast.POSITION.TOP_CENTER, // Set the position to top center
+            className: "bg-gray-800 text-white py-2 px-4 rounded-lg", // Add Tailwind CSS classes for styling
+            autoClose: 3000, // Adjust the duration (in milliseconds) the toast is displayed
+            closeOnClick: true, // Close the toast when clicked
+        });
     };
-
-    // Function to check if a product is already in the cart
-    const isProductInCart = (product) => {
-        return cartItems.some((item) => item.title === product.title);
-    };
-
 
     return (
         <div className="container grid md:grid-cols-4 grid-cols-2 gap-6 pt-4 md:pb-8 items-start">
@@ -436,14 +437,15 @@ const Main = () => {
                                     <div className="text-sm text-gray-500 font-quicksand ml-3">({product.totalReviews})</div>
                                 </div>
                             </div>
-                            <a
-                                href="#"
-                                className="block w-full py-1 text-center text-white bg-primary font-quicksand border border-primary rounded-b hover-bg-transparent hover-text-primary transition"
-                                onClick={() => addToCart(product)} // Add to cart on click
-                                disabled={isProductInCart(product)} // Disable if the product is already in the cart
+                            <button
+                                onClick={() => handleAddToCart(product.title)} // Use product.title as the product title
+
+                                className={`md:px-6 px-4 md:py-2 py-1 text-center font-quicksand w-full text-sm text-white bg-primary border border-primary rounded transition font-medium ${product.availability === 'Out of Stock' ? 'cursor-not-allowed' : ''
+                                    }`}
                             >
-                                {isProductInCart(product) ? 'Added to Cart' : 'Add to Cart'}
-                            </a>
+                                Add to cart
+                            </button>
+
                         </div>
                     ))}
                 </div>
@@ -460,7 +462,7 @@ const Main = () => {
                 )}
 
             </div>
-
+            <ToastContainer />
         </div>
     )
 }

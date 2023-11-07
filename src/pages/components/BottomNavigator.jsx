@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FaHome, FaShoppingCart } from "react-icons/fa";
 import { FaHandshake } from 'react-icons/fa';
 import { MdSell } from 'react-icons/md';
+import { RiContactsBook2Fill } from 'react-icons/ri';
 
 const BottomTabNavigator = () => {
     const location = useLocation();
@@ -12,7 +13,7 @@ const BottomTabNavigator = () => {
     };
 
     return (
-        <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-300 shadow-md">
+        <nav className="fixed bottom-0 left-0 right-0 pl-2 pr-2 bg-white border-t border-gray-300 shadow-md">
             <div className="flex justify-between mx-auto max-w-screen-xl p-4">
                 <Link to="/" className={`flex flex-col items-center ${isCurrentRoute("/") ? "text-primary" : "text-gray-600"} hover:text-primary`}>
                     <FaHome className="text-2xl mb-1" />
@@ -29,7 +30,11 @@ const BottomTabNavigator = () => {
                 <Link to="/search" className={`flex flex-col items-center ${isCurrentRoute("/search") ? "text-primary" : "text-gray-600"} hover:text-primary`}>
                     <FaHandshake className="text-2xl mb-1" />
                     Partner
-                </Link> 
+                </Link>
+                <Link to="/search" className={`flex flex-col items-center ${isCurrentRoute("/search") ? "text-primary" : "text-gray-600"} hover:text-primary`}>
+                    <RiContactsBook2Fill className="text-2xl mb-1" />
+                    Contact
+                </Link>
             </div>
         </nav>
     );

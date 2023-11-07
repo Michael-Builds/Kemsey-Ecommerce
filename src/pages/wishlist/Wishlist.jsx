@@ -8,8 +8,6 @@ import Main from './component/Main'
 import BottomTabNavigator from '../components/BottomNavigator';
 import PreLoader from '../components/PreLoader';
 
-
-
 const Wishlist = () => {
     const location = useLocation();
 
@@ -22,7 +20,7 @@ const Wishlist = () => {
 
     // Function to check screen width and set the isMobile state
     const checkIsMobile = () => {
-        if (window.innerWidth <= 768) { // You can adjust this width as needed
+        if (window.innerWidth <= 800) { // You can adjust this width as needed
             setIsMobile(true);
         } else {
             setIsMobile(false);

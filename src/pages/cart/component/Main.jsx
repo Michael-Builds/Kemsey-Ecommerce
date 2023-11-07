@@ -70,21 +70,21 @@ const Cart = () => {
                             <div className="flex-grow md:w-1/3">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <h2 className="text-gray-800 md:text-xl text-md font-medium uppercase font-quicksand">
+                                        <h2 className="text-gray-800 md:text-xl text-sm md:ml-0 ml-2  text-md font-medium uppercase font-quicksand">
                                             {item.name}
                                         </h2>
-                                        <p className="font-quicksand text-md md:ml-0 md:mt-1 ml-2">{item.description}</p>
+                                        <p className="font-quicksand md:text-md text-sm md:mt-0 mt-1 md:ml-0 md:mt-1 ml-2">{item.description}</p>
                                     </div>
                                     <div className="text-primary md:text-lg text-sm font-semibold font-quicksand">{item.price}</div>
                                 </div>
 
-                                <p className='font-quicksand mt-2'>Seller: {' '}
+                                <p className='font-quicksand mt-2 md:ml-0 ml-2 md:text-md text-sm '>Seller: {' '}
                                     <span className='font-semibold'>
                                         {item.seller}
                                     </span>
                                 </p>
 
-                                <p className="text-gray-500 text-sm font-quicksand mt-2">
+                                <p className="text-gray-500 text-sm font-quicksand mt-2 md:ml-0 ml-2 ">
                                     Availability:{' '}
                                     <span
                                         className={`text-${item.availability === 'In Stock' ? 'green' : 'red'}-600 font-semibold inline-block`}
@@ -93,7 +93,7 @@ const Cart = () => {
                                     </span>
                                 </p>
 
-                                <div className="text-primary justify-between flex items-center md:mt-2 gap-2 md:ml-0 ml-0 cursor-pointer hover:text-primary" >
+                                <div className="text-primary md:ml-0 ml-2  justify-between flex items-center md:mt-2 gap-2 md:ml-0 ml-0 cursor-pointer hover:text-primary" >
                                     <p onClick={() => deleteItem(index)} className='font-quicksand flex items-center gap-4'>Remove
                                         <span>
                                             <FaTrash />

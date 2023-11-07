@@ -255,11 +255,7 @@ const UserProfile = () => {
                             </button>
                         </div>
                     </form>
-
-
                 </div>
-
-
             </div>
 
             {/* Image upload modal */}

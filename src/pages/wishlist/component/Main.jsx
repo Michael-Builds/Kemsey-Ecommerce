@@ -125,7 +125,7 @@ const Main = () => {
                 {/* Wishlist Component */}
                 <div className="col-span-9 space-y-4">
                     {wishlist.map((item, index) => (
-                        <div key={index} className="flex items-center justify-between border md:gap-6 gap-2 p-4 border-gray-200 rounded">
+                        <div key={index} className="flex items-center justify-between border md:gap-6 gap-2 p-4 border-gray-200 rounded md:h-0 h-32">
                             <div className="w-28">
                                 <img src={item.image} alt={`product ${index + 1}`} className="w-full" />
                             </div>

@@ -15,7 +15,7 @@ const Sidebar = ({ setNavToggle }) => {
   const inputClass = isLightMode ? "border" : "border border-slate-500";
 
   return (
-    <section className={`lg:hidden fixed top-0 left-0 w-full h-full md:w-[400px] ${sidebarClass} z-10 overflow-auto `}>
+    <section className={`lg:hidden fixed top-0 left-0 w-full h-full md:w-[400px] ${sidebarClass} z-10 overflow-auto`}>
       <aside className="p-5 ">
         <div className={`flex justify-between items-center mb-5 ${textClass}`}>
           <div className="w-16 h-16 rounded-full overflow-hidden">
@@ -48,13 +48,9 @@ const Sidebar = ({ setNavToggle }) => {
           />
         </div>
 
-        <ul className={`grid gap-3 font-quicksand  ${textClass}`}>
-          <Link to="/">Home</Link>
-          <Link to="/shop">Shop</Link>
-          <Link to="/sell">Sell</Link>
+        <ul className={`grid gap-3 font-quicksand -mb-24 ${textClass}`}>
           <Link to="/about">About Us</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/partner">Partner</Link>
         </ul>
       </aside>
     </section>

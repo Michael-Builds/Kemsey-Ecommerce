@@ -10,6 +10,10 @@ import Img8 from '../../../../assets/products/product8.jpg';
 import { useState } from 'react';
 import { BsStarFill, BsGridFill } from 'react-icons/bs';
 import { FaListUl } from 'react-icons/fa';
+import { AiFillEye } from 'react-icons/ai';
+import { BsFillHeartFill } from 'react-icons/bs';
+import { Link } from "react-router-dom";
+
 
 const products = [
     {
@@ -20,6 +24,10 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Furniture',
+        url: "/product",
+        discount: '10%',
+        wish: "/wishlist",
+
     },
     {
         imgSrc: Img2,
@@ -29,6 +37,10 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Bedroom',
+        url: "/product",
+        discount: '10%',
+        wish: "/wishlist",
+
     },
     {
         imgSrc: Img3,
@@ -38,6 +50,10 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Furniture',
+        url: "/product",
+        discount: '10%',
+        wish: "/wishlist",
+
     },
     {
         imgSrc: Img4,
@@ -47,6 +63,10 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Bedroom',
+        url: "/product",
+        discount: '10%',
+        wish: "/wishlist",
+
     },
     {
         imgSrc: Img5,
@@ -56,6 +76,10 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Bedroom',
+        url: "/product",
+        discount: '10%',
+        wish: "/wishlist",
+
     },
     {
         imgSrc: Img6,
@@ -65,6 +89,10 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Furniture',
+        url: "/product",
+        discount: '10%',
+        wish: "/wishlist",
+
     },
     {
         imgSrc: Img7,
@@ -74,6 +102,10 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Furniture',
+        url: "/product",
+        discount: '10%',
+        wish: "/wishlist",
+
     },
     {
         imgSrc: Img8,
@@ -83,6 +115,10 @@ const products = [
         rating: 5,
         totalReviews: 150,
         category: 'Bedroom',
+        url: "/product",
+        discount: '10%',
+        wish: "/wishlist",
+
     },
 ];
 
@@ -381,8 +417,19 @@ const Main = () => {
                     {getFilteredProductsBySearch().slice(0, visibleProducts).map((product, index) => (
                         <div key={index} className="bg-white shadow rounded overflow-hidden group shadow-lg">
                             <div className="relative">
-                                <img src={product.imgSrc} alt={`Product ${index + 1}`} className="w-full cursor-pointer" onContextMenu={(e) => e.preventDefault()}/>
+                            <img src={product.imgSrc} alt={`Product ${index + 1}`} className="w-full" onContextMenu={(e) => e.preventDefault()} />
+                            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+                                <Link to={product.url} className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
+                                    <AiFillEye />
+                                </Link>
+                                <Link to={product.wish} className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
+                                    <BsFillHeartFill />
+                                </Link>
                             </div>
+                            <div className="absolute top-2 right-2 bg-primary text-white py-1 px-2 rounded-md font-quicksand">
+                                {product.discount}
+                            </div>
+                        </div>
                             <div className="pt-4 pb-3 px-4">
                                 <a href="#">
                                     <h4 className="uppercase font-semibold md:text-lg text-md font-quicksand text-center mb-2 text-gray-800 hover:text-primary transition">{product.title}</h4>

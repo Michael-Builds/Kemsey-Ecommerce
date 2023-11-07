@@ -15,8 +15,8 @@ const Sidebar = ({ setNavToggle }) => {
   const inputClass = isLightMode ? "border" : "border border-slate-500";
 
   return (
-    <section className={`lg:hidden fixed top-0 left-0 w-full h-full md:w-[400px] ${sidebarClass} z-10 overflow-auto`}>
-      <aside className="p-5">
+    <section className={`lg:hidden fixed top-0 left-0 w-full h-full md:w-[400px] ${sidebarClass} z-10 overflow-auto `}>
+      <aside className="p-5 ">
         <div className={`flex justify-between items-center mb-5 ${textClass}`}>
           <div className="w-16 h-16 rounded-full overflow-hidden">
             <img
@@ -37,7 +37,7 @@ const Sidebar = ({ setNavToggle }) => {
           your stories and share them
         </p>
 
-        <div className={`relative flex items-center p-2 rounded-lg mb-5`}>
+        <div className={`relative flex items-center p-2 rounded-lg mb-5 -ml-2`}>
           <div className={`absolute left-2 top-1/2 transform pl-2 -translate-y-1/2 ${searchIconClass}`}>
             <CiSearch className="text-2xl cursor-pointer" />
           </div>
@@ -48,7 +48,7 @@ const Sidebar = ({ setNavToggle }) => {
           />
         </div>
 
-        <ul className={`grid gap-3 font-quicksand ${textClass}`}>
+        <ul className={`grid gap-3 font-quicksand  ${textClass}`}>
           <Link to="/">Home</Link>
           <Link to="/shop">Shop</Link>
           <Link to="/sell">Sell</Link>

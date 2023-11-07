@@ -102,7 +102,7 @@ const Cart = () => {
                                     <div className="flex items-center mt-2 justify-center">
                                         <button
                                             onClick={() => decreaseQuantity(index)}
-                                            className={`w-8 h-8 text-center font-quicksand text-lg text-white bg-primary border border-primary rounded-l ${item.availability === 'Out of Stock' ? 'cursor-not-allowed' : ''
+                                            className={`w-8 h-8 text-center font-quicksand text-lg text-white bg-primary border border-primary rounded-l ${item.availability === 'Out of Stock' ? 'cursor-not-allowed' : item.quantity === 1 ? 'bg-red-300 border-red-300 cursor-not-allowed' : ''
                                                 }`}
                                         >
                                             -
@@ -110,12 +110,13 @@ const Cart = () => {
                                         <span className="px-3 text-lg font-semibold">{item.quantity}</span>
                                         <button
                                             onClick={() => increaseQuantity(index)}
-                                            className={`w-8 h-8 text-center font-quicksand text-lg text-white bg-primary border border-primary rounded-r ${item.availability === 'Out of Stock' ? 'cursor-not-allowed' : ''
+                                            className={`w-8 h-8 text-center font-quicksand text-lg text-white bg-primary border border-primary rounded-r ${item.availability === 'Out of Stock' ? 'cursor-not-allowed ' : ''
                                                 }`}
                                         >
                                             +
                                         </button>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

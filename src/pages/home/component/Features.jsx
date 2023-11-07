@@ -4,17 +4,17 @@ import Img3 from '../../../assets/icons/service-hours.svg';
 
 const featuresData = [
     {
-        imgSrc: Img1 ,
+        imgSrc: Img1,
         title: 'Free Shipping',
         description: 'Order over $200',
     },
     {
-        imgSrc:  Img2 ,
+        imgSrc: Img2,
         title: 'Money Returns',
         description: '30 days money returns',
     },
     {
-        imgSrc:  Img3 ,
+        imgSrc: Img3,
         title: '24/7 Support',
         description: 'Customer support',
     },
@@ -29,7 +29,7 @@ const Features = () => {
                         <img
                             src={feature.imgSrc}
                             alt="image"
-                            className="w-12 h-12 object-contain"
+                            className="w-12 h-12 object-contain object-center"
                         />
                         <div>
                             <h4 className="font-semibold capitalize font-quicksand text-lg mb-2">{feature.title}</h4>

@@ -5,6 +5,7 @@ import Footer from '../../components/Footer';
 import Breadcrumb from './component/Breadcrumb'
 import General from './component/Overview';
 import BottomTabNavigator from '../../components/BottomNavigator';
+import PreLoader from '../../components/PreLoader';
 
 
 const Overview = () => {
@@ -36,14 +37,31 @@ const Overview = () => {
         };
     }, []);
 
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+
+        return () => {
+            clearTimeout(timer); // Clear the timeout when the component is unmounted or the dependency changes
+        };
+    }, []);
+
     return (
         < >
-            <NavBar />
-            <Breadcrumb />
-            <General />
-            <Footer />
-            {isMobile && <BottomTabNavigator />} {/* Conditionally render on mobile */}
-
+            {
+                isLoading ?
+                    <PreLoader />
+                    :
+                    <div>
+                        <NavBar />
+                        <Breadcrumb />
+                        <General />
+                        <Footer />
+                        {isMobile && <BottomTabNavigator />} {/* Conditionally render on mobile */}
+                    </div>
+            }
         </>
     );
 };

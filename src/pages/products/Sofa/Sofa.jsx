@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 import Breadcrumb from './component/Breadcrumb';
 import Main from './component/Main';
 import BottomTabNavigator from '../../components/BottomNavigator';
+import PreLoader from '../../components/PreLoader';
 
 
 const Sofa = () => {
@@ -37,14 +38,31 @@ const Sofa = () => {
         };
     }, []);
 
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+
+        return () => {
+            clearTimeout(timer); // Clear the timeout when the component is unmounted or the dependency changes
+        };
+    }, []);
+
     return (
         < >
-            <NavBar />
-            <Breadcrumb />
-            <Main />
-            <Footer />
-            {isMobile && <BottomTabNavigator />} {/* Conditionally render on mobile */}
-
+            {
+                isLoading ?
+                    <PreLoader />
+                    :
+                    <div>
+                        <NavBar />
+                        <Breadcrumb />
+                        <Main />
+                        <Footer />
+                        {isMobile && <BottomTabNavigator />} {/* Conditionally render on mobile */}
+                    </div>
+            }
         </>
     );
 };

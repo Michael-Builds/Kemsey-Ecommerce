@@ -9,6 +9,7 @@ import Offer from './component/Offer';
 import Recommended from './component/Recommended';
 import Footer from '../components/Footer';
 import BottomTabNavigator from '../components/BottomNavigator';
+import PreLoader from '../components/PreLoader';
 
 const Home = () => {
     const location = useLocation();
@@ -39,17 +40,36 @@ const Home = () => {
         };
     }, []);
 
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+
+        return () => {
+            clearTimeout(timer); // Clear the timeout when the component is unmounted or the dependency changes
+        };
+    }, []);
+
     return (
         <>
-            <NavBar />
-            <Hero />
-            <Features />
-            <ShopByCategory />
-            <TopNewArrival />
-            <Offer />
-            <Recommended />
-            <Footer />
-            {isMobile && <BottomTabNavigator />} {/* Conditionally render on mobile */}
+            {
+                isLoading ?
+                    <PreLoader />
+                    :
+                    <div>
+                        <NavBar />
+                        <Hero />
+                        <Features />
+                        <ShopByCategory />
+                        <TopNewArrival />
+                        <Offer />
+                        <Recommended />
+                        <Footer />
+                        {isMobile && <BottomTabNavigator />} 
+                    </div>
+            }
+
         </>
     );
 };

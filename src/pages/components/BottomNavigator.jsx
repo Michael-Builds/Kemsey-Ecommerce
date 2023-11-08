@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FaHome, FaShoppingCart } from "react-icons/fa";
 import { FaHandshake } from 'react-icons/fa';
 import { MdSell } from 'react-icons/md';
-// import { RiContactsBook2Fill } from 'react-icons/ri';
+import { RiContactsBook2Fill } from 'react-icons/ri';
 
 const BottomTabNavigator = () => {
     const location = useLocation();
@@ -27,9 +27,13 @@ const BottomTabNavigator = () => {
                     <MdSell className="text-2xl mb-1" />
                     Sell
                 </Link>
-                <Link to="/search" className={`flex flex-col font-quicksand font-semibold items-center ${isCurrentRoute("/search") ? "text-primary" : "text-gray-600"} hover:text-primary`}>
+                <Link to="/partner" className={`flex flex-col font-quicksand font-semibold items-center ${isCurrentRoute("/search") ? "text-primary" : "text-gray-600"} hover:text-primary`}>
                     <FaHandshake className="text-2xl mb-1" />
                     Partner
+                </Link>
+                <Link to="/contact" className={`flex flex-col font-quicksand font-semibold items-center ${isCurrentRoute("/search") ? "text-primary" : "text-gray-600"} hover:text-primary`}>
+                    <RiContactsBook2Fill className="text-2xl mb-1" />
+                    Contact
                 </Link>
 
             </div>

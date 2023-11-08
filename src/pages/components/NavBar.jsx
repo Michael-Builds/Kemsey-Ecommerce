@@ -92,7 +92,6 @@ const Navbar = () => {
                                 <p className="text-center justify-center font-quicksand">9</p>
                             </div>
                         </Link>
-
                     </ul>
                 )}
                 {!searchToggle && (

@@ -56,6 +56,8 @@ const Main = () => {
         color: "",
         description: "",
         image: "",
+        availability: "",
+        discount: "",
     })
 
     const handleClear = () => {
@@ -72,6 +74,8 @@ const Main = () => {
             color: "",
             description: "",
             image: "",
+            availability: "",
+            discount: "",
         })
     }
 
@@ -164,6 +168,14 @@ const Main = () => {
         setAdvertiseInfo((prevInfo) => ({
             ...prevInfo,
             brand: value,
+        }));
+    };
+
+    const handleAvailabilitySelect = (e) => {
+        const { value } = e.target;
+        setAdvertiseInfo((prevInfo) => ({
+            ...prevInfo,
+            availability: value,
         }));
     };
 
@@ -303,6 +315,49 @@ const Main = () => {
                                 type="text"
                                 id="sku"
                                 name="sku"
+                                onChange={handleInputChange}
+                                value={advertiseInfo.sku}
+                                className="mt-2 text-gray-600 font-quicksand border border-gray-300 focus:outline-none focus:border-blue-500 rounded-lg p-2 w-full border" />
+                        </div>
+
+                        <div className="space-y-1">
+                            <label
+                                htmlFor="availability"
+                                className="block font-quicksand md:text-md text-gray-600 font-medium">
+                                Availabilty
+                                <span className='text-red-500'> *</span>
+                            </label>
+                            <select
+                                required
+                                id="availability"
+                                name="availability"
+                                onChange={(e) => { handleAvailabilitySelect(e); }}
+                                value={advertiseInfo.availability}
+                                className="mt-2 text-gray-600 border border-gray-300 font-quicksand focus:outline-none focus:border-blue-500 rounded-lg p-2 w-full border">
+                                <option value="" disabled className='font-quicksand'>
+                                    Select availability type
+                                </option>
+                                <option value="ghana" className='font-quicksand'>
+                                    Available in ghana
+                                </option>
+                                <option value="abroad" className='font-quicksand'>
+                                    Shipped from abroad
+                                </option>
+                            </select>
+                        </div>
+
+                        <div className="space-y-1">
+                            <label
+                                htmlFor="discount"
+                                className="block font-quicksand md:text-md text-gray-600 font-medium">
+                                Discount
+                                <span className='text-red-500'> *</span>
+                            </label>
+                            <input
+                                required
+                                type="number"
+                                id="discount"
+                                name="discount"
                                 onChange={handleInputChange}
                                 value={advertiseInfo.sku}
                                 className="mt-2 text-gray-600 font-quicksand border border-gray-300 focus:outline-none focus:border-blue-500 rounded-lg p-2 w-full border" />

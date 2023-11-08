@@ -236,22 +236,22 @@ const Overview = () => {
                     {/* Quanity Selector */}
                     <div className="mt-8">
                         <h3 className="text-lg text-gray-800 uppercase mb-2 mt-4 font-bold font-quicksand">Quantity</h3>
-                        <div className="flex border border-primary text-gray-600 divide-x divide-gray-300 w-max ">
-                            <div
-                                className="h-8 w-8 text-xl flex items-center text-white bg-primary justify-center cursor-pointer select-none"
+                        <div className="flex items-center mt-2 justify-center text-gray-600 divide-x divide-gray-300 w-max ">
+                            <button
+                                className="h-8 w-8 text-xl rounded-l flex items-center  text-white bg-primary justify-center cursor-pointer select-none"
                                 onClick={decreaseCount}
                             >
                                 -
-                            </div>
-                            <div className="h-8 w-8 text-base flex items-center justify-center font-quicksand">
+                            </button>
+                            <span className="h-8 w-8 text-base flex items-center justify-center font-quicksand">
                                 {count}
-                            </div>
-                            <div
-                                className="h-8 w-8 text-xl text-white bg-primary flex items-center justify-center cursor-pointer select-none"
+                            </span>
+                            <button
+                                className="h-8 w-8 text-xl text-center  rounded-r text-white bg-primary flex items-center justify-center cursor-pointer select-none"
                                 onClick={increaseCount}
                             >
                                 +
-                            </div>
+                            </button>
                         </div>
                     </div>
 

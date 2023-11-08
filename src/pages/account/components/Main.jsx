@@ -1,16 +1,18 @@
-// import React from 'react'
 import User from '../../../assets/user.jpeg';
 import { TbLogout2 } from "react-icons/tb";
 import { BsPersonVcardFill, BsFillHeartFill } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 import { FaBoxArchive } from 'react-icons/fa6';
 import { BsFillCreditCardFill } from 'react-icons/bs';
-
+import PersonalInfo from './PersonaIInfo';
+import ShippingAddress from './Shiping';
+import BillingAddress from './Billing';
 
 const Main = () => {
+
     return (
         <section>
-            <div className="container grid md:grid-cols-12 items-start gap-6 pt-4 md:pb-16 pb-2">
+            <div className="container grid md:grid-cols-12 items-start md:gap-6 gap-8 pt-4 md:pb-16 pb-2">
                 {/* SideBar Component */}
                 <div className="col-span-9 md:col-span-3">
                     <div className="px-4 py-3 shadow flex items-center gap-4">
@@ -98,54 +100,16 @@ const Main = () => {
                     </div>
                 </div>
 
-
                 {/* Main Component */}
                 <div className="col-span-9 grid md:grid-cols-3 gap-6">
-                    <div className="shadow rounded bg-white px-4 pt-6 pb-8">
-                        <div className="flex items-center justify-between mb-4">
-                            <h3 className="font-simbold text-gray-800 text-lg font-quicksand">Personal Profile</h3>
-                            <Link to="#" className="text-primary font-quicksand">
-                                Edit
-                            </Link>
-                        </div>
-                        <div className="space-y-2">
-                            <h4 className="text-gray-700 font-semibold font-quicksand">Kabanda Michael</h4>
-                            <p className="text-gray-800 font-quicksand">Ho, Volta Region</p>
-                            <p className="text-gray-800 font-quicksand">michaelkpantiramp@gmail</p>
-                            <p className="text-gray-800 font-quicksand">+233 54 454 1587</p>
-                        </div>
-                    </div>
+                    {/* Personal Info */}
+                    <PersonalInfo />
 
-                    <div className="shadow rounded bg-white px-4 pt-6 pb-8">
-                        <div className="flex items-center justify-between mb-4">
-                            <h3 className="font-semibold text-gray-800 text-lg font-quicksand">Shipping address</h3>
-                            <Link href="#" className="text-primary font-quicksand">
-                                Edit
-                            </Link>
-                        </div>
-                        <div className="space-y-1">
-                            <h4 className="text-gray-700 font-medium font-quicksand">Kabanda Michael</h4>
-                            <p className="text-gray-800 font-quicksand">Ho, Volta Region</p>
-                            <p className="text-gray-800 font-quicksand">Ho-Poly</p>
-                            <p className="text-gray-800 font-quicksand">+233 54 454 1587</p>
-                        </div>
-                    </div>
+                    {/* Shipping Address */}
+                    <ShippingAddress />
 
-                    <div className="shadow rounded bg-white px-4 pt-6 pb-8">
-                        <div className="flex items-center justify-between mb-4">
-                            <h3 className="font-semibold text-gray-800 text-lg font-quicksand">Billing address</h3>
-                            <Link href="#" className="text-primary font-quicksand">
-                                Edit
-                            </Link>
-                        </div>
-                        <div className="space-y-1">
-                            <h4 className="text-gray-700 font-medium font-quicksand">Kabanda Michael</h4>
-                            <p className="text-gray-800 font-quicksand">Ho, Volta Region</p>
-                            <p className="text-gray-800 font-quicksand">Ho-Poly</p>
-                            <p className="text-gray-800 font-quicksand">+233 54 454 1587</p>
-                        </div>
-                    </div>
-
+                    {/* Billing Address */}
+                    <BillingAddress />
                 </div>
 
             </div>

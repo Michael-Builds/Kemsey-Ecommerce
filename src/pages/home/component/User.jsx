@@ -6,7 +6,6 @@ import { TbLogout2 } from "react-icons/tb";
 import { RiFilePaperLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import user from '../../../assets/user.jpeg';
-import { IoMdSettings } from 'react-icons/io';
 
 
 const User = () => {
@@ -78,14 +77,6 @@ const User = () => {
           </section>
 
           <section className="py-2">
-            <div className="flex items-center justify-between rounded-lg hover:dark:bg-slate-700 hover:bg-slate-100  py-2 px-3">
-              <Link to="" className="flex items-center space-x-3">
-                <i>
-                  <IoMdSettings className="md:text-xl" />
-                </i>
-                <p className="font-quicksand text-md">Settings</p>
-              </Link>
-            </div>
             <Link
               to=""
               className="flex items-center space-x-3 rounded-lg hover:dark:bg-slate-700 hover:bg-slate-100  py-2 px-3"

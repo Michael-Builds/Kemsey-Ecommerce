@@ -20,6 +20,7 @@ export default function Login() {
         email: "",
         password: "",
     })
+    
     const handleClear = () => {
         setLoginInfo({
             email: "",

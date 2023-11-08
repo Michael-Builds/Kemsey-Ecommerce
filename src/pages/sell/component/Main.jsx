@@ -229,7 +229,7 @@ const Main = () => {
                                 Color
                                 <span className='text-red-500'> *</span>
                             </label>
-                            <div required className="mt-2 space-x-4 flex flex-wrap font-quicksand items-center">
+                            <div required className="mt-2 space-x-4 flex flex-wrap grid grid-cols-4  font-quicksand items-center">
                                 <label className="flex items-center space-x-2">
                                     <input type="checkbox" id="colorRed" name="color" value="Red" />
                                     <span className="text-gray-600">Red</span>
@@ -249,6 +249,10 @@ const Main = () => {
                                 <label className="flex items-center space-x-2">
                                     <input type="checkbox" id="colorOrange" name="color" value="Orange" />
                                     <span className="text-gray-600">Orange</span>
+                                </label>
+                                <label className="flex items-center space-x-2">
+                                    <input type="checkbox" id="colorBlack" name="color" value="Black" />
+                                    <span className="text-gray-600">Black</span>
                                 </label>
                                 <label className="flex items-center space-x-2">
                                     <input type="checkbox" id="colorBlack" name="color" value="Black" />

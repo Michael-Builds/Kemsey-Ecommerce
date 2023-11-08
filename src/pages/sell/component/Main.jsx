@@ -1,5 +1,5 @@
 import { AiOutlineCloudUpload } from 'react-icons/ai';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 const allowedFileTypes = ['image/svg+xml', 'image/png', 'image/jpeg', 'image/jpg'];
 
 
@@ -7,6 +7,7 @@ const Main = () => {
 
     const [selectedFile, setSelectedFile] = useState(null);
     const [fileError, setFileError] = useState('');
+    const formRef = useRef();
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -41,12 +42,17 @@ const Main = () => {
             }
         }
     };
+    const handleInputFocus = () => {
+        // Scroll the form into view when an input field receives focus
+        const formElement = formRef.current;
+        formElement.scrollIntoView({ behavior: 'smooth' });
+    };
 
     return (
-        <div className=" p-6 h-screen md:mb-56 mb-96">
-            <div className="bg-white border border-gray-200 md:p-6 overflow-y rounded-lg">
-                <div className="relative p-4 ">
-                    <form className="p-4 grid md:gap-6 gap-2 md:grid-cols-2 md:mb-0 -mb-6 ">
+        <div className="p-6 md:h-screen md:mb-56 mb-24">
+            <div className="bg-white border border-gray-200 md:p-6 overflow-y rounded-lg md:mb-0">
+                <div className="relative p-4 " ref={formRef}>
+                    <form className="p-4 grid md:gap-6 gap-2 md:grid-cols-2" onClick={handleInputFocus}>
                         <div className="space-y-1">
                             <label
                                 htmlFor="pname"
@@ -93,7 +99,7 @@ const Main = () => {
                                 <option value="Electronics">Electronics</option>
                                 <option value="Clothing">Clothing</option>
                                 <option value="Furniture">Furniture</option>
-                                {/* Add more email options as needed */}
+
                             </select>
                         </div>
 
@@ -199,8 +205,8 @@ const Main = () => {
                             </label>
                             <select
                                 required
-                                id="email"
-                                name="email"
+                                id="size"
+                                name="size"
                                 className="mt-2 text-gray-600 border border-gray-300 font-quicksand focus:outline-none focus:border-blue-500 rounded-lg p-2 w-full border">
                                 <option value="" disabled className='font-quicksand'>
                                     Select a size
@@ -222,6 +228,7 @@ const Main = () => {
                                 </option>
                             </select>
                         </div>
+
                         <div className="space-y-1">
                             <label
                                 htmlFor="color"
@@ -229,12 +236,12 @@ const Main = () => {
                                 Color
                                 <span className='text-red-500'> *</span>
                             </label>
-                            <div required className="mt-2 space-x-4 flex flex-wrap grid grid-cols-4  font-quicksand items-center">
+                            <div className="mt-2 space-x-3 flex flex-wrap font-quicksand">
                                 <label className="flex items-center space-x-2">
                                     <input type="checkbox" id="colorRed" name="color" value="Red" />
                                     <span className="text-gray-600">Red</span>
                                 </label>
-                                <label className="flex items-center space-x-2">
+                                <label className="flex items-center  space-x-2">
                                     <input type="checkbox" id="colorBlue" name="color" value="Blue" />
                                     <span className="text-gray-600">Blue</span>
                                 </label>
@@ -243,22 +250,13 @@ const Main = () => {
                                     <span className="text-gray-600">Green</span>
                                 </label>
                                 <label className="flex items-center space-x-2">
+                                    <input type="checkbox" id="colorPurple" name="color" value="Purple" />
+                                    <span className="text-gray-600">Purple</span>
+                                </label>
+                                <label className="flex items-center space-x-2">
                                     <input type="checkbox" id="colorYellow" name="color" value="Yellow" />
                                     <span className="text-gray-600">Yellow</span>
                                 </label>
-                                <label className="flex items-center space-x-2">
-                                    <input type="checkbox" id="colorOrange" name="color" value="Orange" />
-                                    <span className="text-gray-600">Orange</span>
-                                </label>
-                                <label className="flex items-center space-x-2">
-                                    <input type="checkbox" id="colorBlack" name="color" value="Black" />
-                                    <span className="text-gray-600">Black</span>
-                                </label>
-                                <label className="flex items-center space-x-2">
-                                    <input type="checkbox" id="colorBlack" name="color" value="Black" />
-                                    <span className="text-gray-600">Black</span>
-                                </label>
-
                                 <label className="flex items-center space-x-2">
                                     <input type="checkbox" id="colorOther" name="color" value="Other" />
                                     <span className="text-gray-600">Other</span>
@@ -320,7 +318,7 @@ const Main = () => {
                             {fileError && <p className="text-red-600">{fileError}</p>}
                         </div>
 
-                        <div className="float-right gap-4 flex md:mt-2 mt-4 md:mr-4 md:mb-0 mb-4">
+                        <div className="float-right gap-4 flex md:mt-2 mt-4 md:mr-4 md:mb-0 mb-6">
                             <button
                                 type="submit"
                                 className="bg-primary font-quicksand text-white px-4 w-24 p-3 rounded-lg"

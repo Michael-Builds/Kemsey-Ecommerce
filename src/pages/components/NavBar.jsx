@@ -80,19 +80,18 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="pr-24 flex items-center justify-center gap-10">
+          <div className=" flex items-center justify-center gap-8">
             {menuItems.map((item, index) => (
-              <div
-                key={index}
-                className="font-quicksand items-center gap-4 relative"
-              >
-                {item.icon}
-                {item.badge && (
-                  <span className="absolute -top-2 text-center left-5 -right-3 bg-white text-orange font-bold rounded-full p-[2px] text-xs">
-                    {item.badge}
-                  </span>
-                )}
-                <p className="text-sm whitespace-nowrap">{item.text}</p>
+              <div key={index} className="font-quicksand text-center">
+                <div className="flex flex-col items-center gap-4 relative">
+                  {item.icon}
+                  {item.badge && (
+                    <span className="absolute -top-2 text-center left-5 -right-3 bg-white text-orange font-bold rounded-full p-[2px] text-xs">
+                      {item.badge}
+                    </span>
+                  )}
+                  <p className="text-sm whitespace-nowrap -mt-3 ">{item.text}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -197,7 +196,7 @@ const Navbar = () => {
               </Link>
             </ul>
           )}
-        </nav>    
+        </nav>
       </section>
     </div>
   );

@@ -5,122 +5,202 @@ import { CiSearch } from "react-icons/ci";
 import { useState } from "react";
 import User from "../home/component/User";
 import Sidebar from "./SideBar";
-import Logo from '../../assets/logo.png';
-
+import Logo from "../../assets/logo.png";
+import { IoSearchSharp } from "react-icons/io5";
+import { LuHeart } from "react-icons/lu";
+import { GoGift } from "react-icons/go";
+import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { TbLayoutGrid } from "react-icons/tb";
+import { AiOutlineCustomerService } from "react-icons/ai";
+import { IoSearchOutline } from "react-icons/io5";
+import { IoCloseOutline } from "react-icons/io5";
 
 const Navbar = () => {
-    const [navToggle, setNavToggle] = useState(false);
-    const [searchToggle, setSearchToggle] = useState(true);
+  const [navToggle, setNavToggle] = useState(false);
+  const [searchToggle, setSearchToggle] = useState(true);
 
-    return (
-        <section className="sticky z-50 top-0 inset-x-0 bg-white dark:bg-slate-950 dark:text-slate-300 shadow-md">
-            <nav className="flex justify-between items-center w-[90%] 2xl:w-[1440px] mx-auto py-5">
-                <div onClick={() => setNavToggle(!navToggle)} className="lg:hidden">
-                    <RxHamburgerMenu className="text-2xl" />
+  const menuItems = [
+    { icon: <LuHeart className="h-6 w-6 ml-4" />, text: "Wish Lists" },
+    { icon: <GoGift className="h-6 w-6 ml-4" />, text: "Gift Cards" },
+    { icon: <AiOutlineUser className="h-6 w-6 ml-2" />, text: "Sign In" },
+    {
+      icon: <AiOutlineShoppingCart className="h-6 w-6 ml-1" />,
+      text: "Cart",
+      badge: 3,
+    },
+  ];
+
+  const navigationItems = [
+    {
+      label: "Home",
+      link: "/",
+      children: [],
+    },
+    { label: "Shop", link: "/shop", children: [] },
+    {
+      label: "Sell",
+      link: "/sell",
+      children: [],
+    },
+    { label: "About Us", link: "/about-us", children: [] },
+    { label: "Contact", link: "/contact", children: [] },
+    {
+      label: "Partner",
+      link: "/partner",
+      children: [],
+    },
+  ];
+  return (
+    <div className="sticky z-50 top-0 inset-x-0">
+      {/* Top Bar */}
+      <section className="text-white pb-6 pt-6 bg-orange hidden md:block">
+        <div className="flex gap-32">
+          <div className="font-poppins pl-16 text-3xl whitespace-nowrap">
+            <span className="font-bold">Kemsey</span>
+            <span className="italic underline">Store+</span>
+          </div>
+
+          <div class="flex font-quicksand flex-col items-center">
+            <h2 class="text-md whitespace-nowrap">Available 24/7 at</h2>
+            <p className="font-bold text-sm whitespace-nowrap">
+              +1(800)555-5555
+            </p>
+          </div>
+
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search the store"
+              className="border rounded px-8 font-quicksand py-1 w-[32rem] h-12 rounded-3xl text-gray-600 focus:outline-none"
+            />
+            <div className="absolute inset-y-0 right-0 pr-4 flex items-center ">
+              <IoSearchSharp className="text-orange h-6 w-6 cursor-pointer" />
+            </div>
+          </div>
+
+          <div className="pr-24 flex items-center justify-center gap-10">
+            {menuItems.map((item, index) => (
+              <div
+                key={index}
+                className="font-quicksand items-center gap-4 relative"
+              >
+                {item.icon}
+                {item.badge && (
+                  <span className="absolute -top-2 text-center left-5 -right-3 bg-white text-orange font-bold rounded-full p-[2px] text-xs">
+                    {item.badge}
+                  </span>
+                )}
+                <p className="text-sm whitespace-nowrap">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className=" bg-white dark:bg-slate-950 dark:text-slate-300 shadow-md">
+        <nav className="flex justify-between items-center w-[80%] mx-auto py-5">
+          <div className="lg:hidden gap-6 flex justify-center item-center -ml-6">
+            <RxHamburgerMenu
+              className="text-2xl cursor-pointer "
+              onClick={() => setNavToggle(!navToggle)}
+            />
+
+            <div className={`drawer ${navToggle ? "show" : ""}`}>
+              <IoCloseOutline
+                className="text-2xl cursor-pointer absolute top-4 right-4"
+                onClick={() => setNavToggle(false)}
+              />
+
+              <div className="mt-24 pl-6">
+                <p>Home</p>
+                <p>Home</p>
+                <p>Home</p>
+                <p>Home</p>
+                <p>Home</p>
+                <p>Home</p>
+                <p>Home</p>
+              </div>
+            </div>
+
+            <IoSearchOutline className="text-2xl cursor-pointer" />
+          </div>
+
+          <Link to="/" className="lg:hidden ">
+            <section className="flex justify-between items-center space-x-2 w-full">
+              <div className="w-12 h-12 overflow-hidden">
+                <img
+                  src={Logo}
+                  alt=""
+                  className="w-full h-full"
+                  onContextMenu={(e) => e.preventDefault()}
+                />
+              </div>
+
+              <h1 className="font-bold text-lg font-quicksand">Kemsey Store</h1>
+            </section>
+          </Link>
+
+          <div className="hidden md:block">
+            <div className="flex items-center gap-3 ">
+              <TbLayoutGrid className="text-orange" />
+              <p className="font-quicksand font-medium text-sm">Categories</p>
+              <MdOutlineKeyboardArrowDown className="cursor-pointer" />
+            </div>
+          </div>
+
+          <div className="hidden md:block pl-48">
+            <div className="flex justify-center items-center gap-10 border-l-2 pl-4 border-gray-500">
+              {navigationItems.map((item, index) => (
+                <div key={index} className="relative">
+                  <a
+                    href={item.link}
+                    className="font-quicksand font-medium text-sm navigate"
+                  >
+                    {item.label}
+                  </a>
                 </div>
-                <Link to="/">
-                    <section className="flex justify-between items-center space-x-2 w-full">
-                        <div
-                            className="w-12 h-12 overflow-hidden">
-                            <img
-                                src={Logo}
-                                alt=""
-                                className="w-full h-full"
-                                onContextMenu={(e) => e.preventDefault()}
-                            />
-                        </div>
+              ))}
+            </div>
+          </div>
 
-                        <h1 className="font-bold text-lg font-quicksand">Kemsey Store</h1>
-                    </section>
-                </Link>
+          <div className="hidden md:block">
+            <div className="flex items-center gap-6 ml-96">
+              <div className="flex items-center text-sm gap-2 font-quicksand border-gray-500 border-r-2 pr-4">
+                <AiOutlineCustomerService className="text-orange" />
+                Help
+              </div>
 
-                {searchToggle && (
-                    <ul className="hidden lg:flex items-center font-quicksand text-md font-medium">
-                        <Link
-                            to="/"
-                            className="hover:dark:bg-slate-900 md:text-md  hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
-                        >
-                            Home
-                        </Link>
-                        <Link
-                            to="/shop"
-                            className="hover:dark:bg-slate-900 md:text-md  hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
-                        >
-                            Shop
-                        </Link>
-                        <Link
-                            to="/sell"
-                            className="hover:dark:bg-slate-900 md:text-md hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
-                        >
-                            Sell
-                        </Link>
-                        <Link
-                            to="/products"
-                            className="hover:dark:bg-slate-900 flex items-center md:text-md hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[120px] h-[40px] flex items-center justify-center"
-                        >
-                            About Us
-                        </Link>
-                        <Link
-                            to="/products"
-                            className="hover:dark:bg-slate-900 md:text-md hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
-                        >
-                            Contact
-                        </Link>
-                        <Link
-                            to="/blog"
-                            className="hover:dark:bg-slate-900 md:text-md font-quicksand hover:bg-primary hover:text-white py-2 px-5 rounded-md w-[100px] h-[40px] flex items-center justify-center"
-                        >
-                            Partner
-                        </Link>
-                    </ul>
-                )}
+              <div className="flex font-quicksand text-sm font-medium items-center justify-center">
+                <p>EN/CHF</p>
+                <MdOutlineKeyboardArrowDown className="cursor-pointer" />
+              </div>
+            </div>
+          </div>
 
-                {searchToggle && (
-                    <ul className="flex items-center">
-                        <li
-                            onClick={() => setSearchToggle(!searchToggle)}
-                            className="hidden lg:block hover:dark:bg-slate-900 hover:bg-slate-100 p-2 rounded-full"
-                        >
-                            <CiSearch className="md:text-xl cursor-pointer" />
-                        </li>
-                        <li className="">
-                            <User />
-                        </li>
-                        <Link to="/cart" className="relative hover:dark:bg-slate-900 hover:bg-slate-100 p-2 rounded-full">
-                            <PiShoppingCartThin className="md:text-xl" />
-                            <div className="absolute top-0 right-0 p-1 h-4 text-xs text-center rounded-full bg-primary text-white flex justify-center items-center">
-                                <p className="text-center justify-center font-quicksand">9</p>
-                            </div>
-                        </Link>
-                    </ul>
-                )}
-                {!searchToggle && (
-                    <input
-                        type="text"
-                        className="py-2 px-3 w-1/2 rounded-md font-quicksand text-gray-600 border border-gray-500 focus:outline-none"
-                        placeholder="Search items ..."
-                    />
-                )}
-                {!searchToggle && (
-                    <button
-                        onClick={() => setSearchToggle(!searchToggle)}
-                        className="hover:dark:bg-slate-900 -ml-[25%] hover:bg-primary hover:text-white py-2 px-5 rounded-md bg-slate-200 font-quicksand "
-                    >
-                        Cancel
-                    </button>
-                )}
-            </nav>
-            {navToggle && (
-                <div
-                    onClick={() => setNavToggle(!navToggle)}
-                    className="lg:hidden fixed inset-0 bg-slate-900/20 backdrop-blur-lg w-full h-full"
-                ></div>
-            )}
-            {navToggle && <Sidebar setNavToggle={setNavToggle} />}
-        </section>
-    );
+          {searchToggle && (
+            <ul className="flex items-center lg:hidden lg:flex -mr-6">
+              <li className="text-xl ">
+                <User />
+              </li>
+              <Link
+                to="/cart"
+                className="relative hover:dark:bg-slate-900 hover:bg-slate-100 p-2 rounded-full"
+              >
+                <PiShoppingCartThin className="text-xl " />
+                <div className="absolute -top-2 -right-2 left-5 p-3 h-4 text-xs rounded-full bg-orange text-white flex justify-center items-center">
+                  <p className="text-center  justify-center font-quicksand">
+                    9
+                  </p>
+                </div>
+              </Link>
+            </ul>
+          )}
+        </nav>    
+      </section>
+    </div>
+  );
 };
-
-
 
 export default Navbar;

@@ -20,6 +20,7 @@ export default {
       },
       colors: {
         primary: "#fd3d57",
+        orange: " #fd6506",
       },
     },
   },

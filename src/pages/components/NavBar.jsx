@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { PiShoppingCartThin } from "react-icons/pi";
-import { CiSearch } from "react-icons/ci";
 import { useState } from "react";
 import User from "../home/component/User";
-import Sidebar from "./SideBar";
 import Logo from "../../assets/logo.png";
 import { IoSearchSharp } from "react-icons/io5";
 import { LuHeart } from "react-icons/lu";
@@ -16,17 +14,20 @@ import { TbLayoutGrid } from "react-icons/tb";
 import { AiOutlineCustomerService } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import { IoCloseOutline } from "react-icons/io5";
+import { MdKeyboardArrowUp } from "react-icons/md";
+import Announcement from "../components/Announcement";
 
 const Navbar = () => {
   const [navToggle, setNavToggle] = useState(false);
   const [searchToggle, setSearchToggle] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
 
   const menuItems = [
-    { icon: <LuHeart className="h-6 w-6 ml-4" />, text: "Wish Lists" },
-    { icon: <GoGift className="h-6 w-6 ml-4" />, text: "Gift Cards" },
-    { icon: <AiOutlineUser className="h-6 w-6 ml-2" />, text: "Sign In" },
+    { icon: <LuHeart className="h-5 w-5 " />, text: "Wish Lists" },
+    { icon: <GoGift className="h-5 w-5 " />, text: "Gift Cards" },
+    { icon: <AiOutlineUser className="h-5 w-5 " />, text: "Sign In" },
     {
-      icon: <AiOutlineShoppingCart className="h-6 w-6 ml-1" />,
+      icon: <AiOutlineShoppingCart className="h-5 w-5 " />,
       text: "Cart",
       badge: 3,
     },
@@ -54,17 +55,21 @@ const Navbar = () => {
   ];
   return (
     <div className="sticky z-50 top-0 inset-x-0">
+      {/* Announcement */}
+      <Announcement />
       {/* Top Bar */}
-      <section className="text-white pb-6 pt-6 bg-orange hidden md:block">
-        <div className="flex gap-32">
-          <div className="font-poppins pl-16 text-3xl whitespace-nowrap">
-            <span className="font-bold">Kemsey</span>
-            <span className="italic underline">Store+</span>
+      <section className=" pb-6 flex  pt-6 bg-white hidden md:block">
+        <div className="flex gap-32 items-center justify-center ">
+          <div className="flex items-center gap-4">
+            <img src={Logo} className="h-12 w-12" />
+            <p className="text-orange font-quicksand whitespace-nowrap text-2xl font-bold">
+              Kemsey Store
+            </p>
           </div>
 
           <div class="flex font-quicksand flex-col items-center">
             <h2 class="text-md whitespace-nowrap">Available 24/7 at</h2>
-            <p className="font-bold text-sm whitespace-nowrap">
+            <p className="font-bold text-sm text-orange whitespace-nowrap">
               +1(800)555-5555
             </p>
           </div>
@@ -73,24 +78,26 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search the store"
-              className="border rounded px-8 font-quicksand py-1 w-[32rem] h-12 rounded-3xl text-gray-600 focus:outline-none"
+              className="border rounded px-8 font-quicksand py-1 w-[32rem] h-10 rounded-3xl text-gray-600 focus:outline-none"
             />
             <div className="absolute inset-y-0 right-0 pr-4 flex items-center ">
-              <IoSearchSharp className="text-orange h-6 w-6 cursor-pointer" />
+              <IoSearchSharp className=" text-gray-500 h-6 w-6 cursor-pointer" />
             </div>
           </div>
 
-          <div className=" flex items-center justify-center gap-8">
+          <div className=" flex items-center justify-center gap-8 ">
             {menuItems.map((item, index) => (
-              <div key={index} className="font-quicksand text-center">
+              <div key={index} className="font-quicksand text-center ">
                 <div className="flex flex-col items-center gap-4 relative">
                   {item.icon}
                   {item.badge && (
-                    <span className="absolute -top-2 text-center left-5 -right-3 bg-white text-orange font-bold rounded-full p-[2px] text-xs">
+                    <span className="absolute -top-2 text-center left-5 -right-4 bg-orange text-white font-bold rounded-full p-[2px] text-xs">
                       {item.badge}
                     </span>
                   )}
-                  <p className="text-sm whitespace-nowrap -mt-3 ">{item.text}</p>
+                  <p className="text-xs whitespace-nowrap -mt-3 ">
+                    {item.text}
+                  </p>
                 </div>
               </div>
             ))}
@@ -98,7 +105,7 @@ const Navbar = () => {
         </div>
       </section>
 
-      <section className=" bg-white dark:bg-slate-950 dark:text-slate-300 shadow-md">
+      <section className=" bg-orange text-white">
         <nav className="flex justify-between items-center w-[80%] mx-auto py-5">
           <div className="lg:hidden gap-6 flex justify-center item-center -ml-6">
             <RxHamburgerMenu
@@ -108,11 +115,11 @@ const Navbar = () => {
 
             <div className={`drawer ${navToggle ? "show" : ""}`}>
               <IoCloseOutline
-                className="text-2xl cursor-pointer absolute top-4 right-4"
+                className="text-2xl cursor-pointer absolute top-6 text-orange right-4"
                 onClick={() => setNavToggle(false)}
               />
 
-              <div className="mt-24 pl-6">
+              <div className="mt-24 pl-6 text-orange">
                 <p>Home</p>
                 <p>Home</p>
                 <p>Home</p>
@@ -123,7 +130,10 @@ const Navbar = () => {
               </div>
             </div>
 
-            <IoSearchOutline className="text-2xl cursor-pointer" />
+            <IoSearchOutline
+              onClick={() => setNavToggle(!navToggle)}
+              className="text-2xl cursor-pointer"
+            />
           </div>
 
           <Link to="/" className="lg:hidden ">
@@ -141,21 +151,34 @@ const Navbar = () => {
             </section>
           </Link>
 
+          {/* Categories */}
           <div className="hidden md:block">
-            <div className="flex items-center gap-3 ">
-              <TbLayoutGrid className="text-orange" />
-              <p className="font-quicksand font-medium text-sm">Categories</p>
-              <MdOutlineKeyboardArrowDown className="cursor-pointer" />
+            <div className="gap-3">
+              <div
+                className="flex items-center gap-4"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <TbLayoutGrid className="text-white" />
+                <p className="font-quicksand font-medium whitespace-nowrap text-sm">
+                  Categories (See All)
+                </p>
+                {isHovered ? (
+                  <MdKeyboardArrowUp className="cursor-pointer" />
+                ) : (
+                  <MdOutlineKeyboardArrowDown className="cursor-pointer" />
+                )}
+              </div>
             </div>
           </div>
 
           <div className="hidden md:block pl-48">
-            <div className="flex justify-center items-center gap-10 border-l-2 pl-4 border-gray-500">
+            <div className="flex justify-center  items-center gap-10 border-l-2 pl-4 border-white">
               {navigationItems.map((item, index) => (
                 <div key={index} className="relative">
                   <a
                     href={item.link}
-                    className="font-quicksand font-medium text-sm navigate"
+                    className="font-quicksand font-medium whitespace-nowrap text-sm navigate"
                   >
                     {item.label}
                   </a>
@@ -166,8 +189,8 @@ const Navbar = () => {
 
           <div className="hidden md:block">
             <div className="flex items-center gap-6 ml-96">
-              <div className="flex items-center text-sm gap-2 font-quicksand border-gray-500 border-r-2 pr-4">
-                <AiOutlineCustomerService className="text-orange" />
+              <div className="flex items-center text-sm gap-2 font-quicksand border-white border-r-2 pr-4">
+                <AiOutlineCustomerService className="text-white" />
                 Help
               </div>
 
@@ -180,15 +203,12 @@ const Navbar = () => {
 
           {searchToggle && (
             <ul className="flex items-center lg:hidden lg:flex -mr-6">
-              <li className="text-xl ">
+              <li className="text-xl">
                 <User />
               </li>
-              <Link
-                to="/cart"
-                className="relative hover:dark:bg-slate-900 hover:bg-slate-100 p-2 rounded-full"
-              >
+              <Link to="/cart" className="relative p-2 rounded-full">
                 <PiShoppingCartThin className="text-xl " />
-                <div className="absolute -top-2 -right-2 left-5 p-3 h-4 text-xs rounded-full bg-orange text-white flex justify-center items-center">
+                <div className="absolute -top-2 -right-2 left-5 p-3 h-4 text-xs rounded-full bg-white text-orange flex justify-center items-center">
                   <p className="text-center  justify-center font-quicksand">
                     9
                   </p>

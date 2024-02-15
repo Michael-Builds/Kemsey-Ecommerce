@@ -11,14 +11,20 @@
 /* tailwindcss utility styles */
 @import "tailwindcss/utilities";
 
+.bottom_tap {
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
 .navigate {
   position: relative;
   display: inline-block;
   font-size: 16px;
-  color: #333;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
 }
+
 .side {
   position: relative;
   display: inline-block;
@@ -44,7 +50,7 @@
   bottom: -2px;
   width: 0;
   height: 1px;
-  background-color: #fd6506;
+  background-color: #ffffff;
   transition: width 0.3s ease-in-out;
 }
 
@@ -72,4 +78,55 @@
 .cat {
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.announcement-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.announcement-text {
+  display: flex;
+  animation-timing-function: linear;
+}
+
+.text-lg {
+  margin-right: 1rem;
+}
+
+.category {
+  border-radius: 100%;
+}
+
+#category_text {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #000; /* Set your initial text color */
+  transition: color 0.3s ease-in-out;
+}
+
+#category_text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.4s ease-in-out, width 0.4s ease-in-out;
+}
+
+#category_text:hover::after {
+  width: 100%;
+  background-color: #fd6506;
 }

@@ -1,17 +1,15 @@
-import Hero from "./component/Hero";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import Features from "./component/Features";
-import ShopByCategory from "./component/ShopByCategory";
-import TopNewArrival from "./component/TopNewArrival";
-import Offer from "./component/Offer";
-import Recommended from "./component/Recommended";
 import Footer from "../components/Footer";
 import BottomTabNavigator from "../components/BottomNavigator";
 import PreLoader from "../components/PreLoader";
 import Header from "./component/Header";
-import Hero_Header from './component/Main-Head'
+import Hero_Header from "./component/Main-Head";
+import Terms from "../components/Conditions";
+import Discount from "./component/Discount";
+import Category from "./component/ShopByCategory";
+import ShopWithUs from "./component/ShopWithUs";
 const Home = () => {
   const location = useLocation();
 
@@ -61,13 +59,17 @@ const Home = () => {
         <div>
           <NavBar />
           <Header />
-          <Hero_Header/>
-          <Hero />
-          <Features />
-          <ShopByCategory />
-          <TopNewArrival />
-          <Offer />
-          <Recommended />
+          <Hero_Header />
+          <Discount />
+          <Category />
+          {/* <Offer /> */}
+          {/* <Hero /> */}
+          {/* <Features /> */}
+          {/* <ShopByCategory /> */}
+          {/* <TopNewArrival /> */}
+
+          {/* <Recommended /> */}
+          <ShopWithUs />
           <Footer />
           {isMobile && <BottomTabNavigator />}
         </div>

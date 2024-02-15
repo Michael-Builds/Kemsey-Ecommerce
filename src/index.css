@@ -64,8 +64,8 @@
 .drawer {
   position: fixed;
   top: 0;
-  left: -350px;
-  width: 350px;
+  left: -300px;
+  width: 300px;
   height: 100%;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -111,7 +111,7 @@
   position: relative;
   display: inline-block;
   text-decoration: none;
-  color: #000; /* Set your initial text color */
+  color: #000;
   transition: color 0.3s ease-in-out;
 }
 
@@ -129,4 +129,53 @@
 #category_text:hover::after {
   width: 100%;
   background-color: #fd6506;
+}
+
+.sub-button {
+  background: linear-gradient(to right, orange, #fd6506);
+}
+
+.sub-button {
+  animation: danceAnimation 2s infinite alternate; /* 2s interval, alternate direction */
+}
+
+@keyframes danceAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(8px);
+  }
+}
+/* YourComponent.css */
+@keyframes danceUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px); /* Adjust the value for desired movement */
+  }
+}
+
+.dancing-container {
+  animation: danceUpDown 2s ease-in-out infinite; /* Adjust the duration as needed */
+}
+
+.sub-form-bg {
+  border-top-left-radius: 40px;
+}
+
+.sub-form-card {
+  border-bottom-right-radius: 40px;
+}
+
+.form-close-card {
+  border-bottom-left-radius: 15px;
+}
+.rotate-on-hover {
+  transition: transform 0.3s ease; /* Adjust the duration and timing function as needed */
+}
+
+.rotate-on-hover:hover {
+  transform: rotate(360deg);
 }

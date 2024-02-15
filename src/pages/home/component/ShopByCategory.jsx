@@ -87,20 +87,19 @@ const ShopByCategory = () => {
   return (
     <section className="bg-gray-100">
       <div className="container py-16 px-10">
-        {" "}
         <div className="flex items-center gap-4">
-          <h2 className="text-xl font-bold font-quicksand text-gray-800 capitalize ">
+          <h2 className="text-xl font-bold font-quicksand text-gray-800 capitalize">
             Shop by category
           </h2>
-          <p className=" underline cursor-pointer font-quicksand ">View All</p>
+          <p className="underline cursor-pointer font-quicksand">View All</p>
         </div>
         <Slider {...settings} className="justify-center items-center">
           {categories.map((category, index) => (
             <div
               key={index}
-              className="relative mt-12 text-center lg:pl-2 pl-2 pr-2"
+              className="relative slick-slide mt-12 text-center lg:pl-2 pl-2 pr-2"
             >
-              <div className=" bg-white lg:h-56 lg:w-56 h-[10rem] w-[10rem] shadow-md delay-2000 transition-transform transform hover:scale-110 cursor-pointer rounded-full overflow-hidden flex items-center justify-center">
+              <div className="bg-white lg:h-56 lg:w-56 h-[10rem] w-[10rem] shadow-md delay-2000 transition-transform transform hover:scale-110 cursor-pointer rounded-full overflow-hidden flex items-center justify-center">
                 <img
                   src={category.imgSrc}
                   className="items-center p-10"

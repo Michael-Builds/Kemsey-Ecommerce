@@ -16,6 +16,8 @@ import { IoSearchOutline } from "react-icons/io5";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import Announcement from "../components/Announcement";
+import Profile from "../../assets/user.jpeg";
+import { VscClose } from "react-icons/vsc";
 
 const Navbar = () => {
   const [navToggle, setNavToggle] = useState(false);
@@ -112,21 +114,22 @@ const Navbar = () => {
               className="text-2xl cursor-pointer "
               onClick={() => setNavToggle(!navToggle)}
             />
-
+            {/* Drawer */}
             <div className={`drawer ${navToggle ? "show" : ""}`}>
-              <IoCloseOutline
-                className="text-2xl cursor-pointer absolute top-6 text-orange right-4"
-                onClick={() => setNavToggle(false)}
-              />
+              <div className="flex p-4 justify-between items-center mb-5 mt-2">
+                {/* <div className="w-16 h-16 rounded-full overflow-hidden"> */}
+                  {/* <img
+                    src={Profile}
+                    alt=""
+                    className="w-full h-full object-center object-cover"
+                  /> */}
+                  <h2 className="text-2xl text-gray-500 font-medium font-quicksand">Menu</h2>
+                {/* </div> */}
 
-              <div className="mt-24 pl-6 text-orange">
-                <p>Home</p>
-                <p>Home</p>
-                <p>Home</p>
-                <p>Home</p>
-                <p>Home</p>
-                <p>Home</p>
-                <p>Home</p>
+                <VscClose
+                  className="text-2xl rotate-on-hover cursor-pointer absolute right-3 text-orange"
+                  onClick={() => setNavToggle(false)}
+                />
               </div>
             </div>
 

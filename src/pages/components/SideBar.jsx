@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { VscClose } from "react-icons/vsc";
-import PropTypes from 'prop-types';
-import User from '../../assets/user.jpeg';
+import PropTypes from "prop-types";
+import User from "../../assets/user.jpeg";
 
-const Sidebar = ({ setNavToggle }) => {
+const Sidebar = ({ setNavToggle, searchToggle }) => {
   // Add a state or variable to toggle between light and dark mode
   const isLightMode = false; // Set this to true for light mode and false for dark mode
 
@@ -15,8 +15,9 @@ const Sidebar = ({ setNavToggle }) => {
   const inputClass = isLightMode ? "border" : "border border-slate-500";
 
   return (
-    <section className={`lg:hidden fixed top-0 left-0 w-full h-full md:w-[400px] ${sidebarClass} z-10 overflow-auto`}>
+    <section className="drawer">
       <aside className="p-5 ">
+
         <div className={`flex justify-between items-center mb-5 ${textClass}`}>
           <div className="w-16 h-16 rounded-full overflow-hidden">
             <img
@@ -32,13 +33,16 @@ const Sidebar = ({ setNavToggle }) => {
             <VscClose className="text-2xl" />
           </p>
         </div>
+        
         <p className={`mb-4 font-quicksand text-sm ${textClass}`}>
           Discover the most outstanding articles on all topics of life. Write
           your stories and share them
         </p>
 
         <div className={`relative flex items-center p-2 rounded-lg mb-5 -ml-2`}>
-          <div className={`absolute left-2 top-1/2 transform pl-2 -translate-y-1/2 ${searchIconClass}`}>
+          <div
+            className={`absolute left-2 top-1/2 transform pl-2 -translate-y-1/2 ${searchIconClass}`}
+          >
             <CiSearch className="text-2xl cursor-pointer" />
           </div>
           <input
@@ -59,6 +63,7 @@ const Sidebar = ({ setNavToggle }) => {
 
 Sidebar.propTypes = {
   setNavToggle: PropTypes.func.isRequired,
+  searchToggle: PropTypes.bool.isRequired,
 };
 
 export default Sidebar;

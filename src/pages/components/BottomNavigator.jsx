@@ -29,15 +29,6 @@ const BottomTabNavigator = () => {
           Home
         </Link>
         <Link
-          to="/shop"
-          className={`flex flex-col font-quicksand font-medium  items-center text-sm ${
-            isCurrentRoute("/shop") ? "text-orange" : "text-gray-600"
-          } hover:text-orange`}
-        >
-          <IoSearchOutline className="text-xl mb-1" />
-          Search
-        </Link>
-        <Link
           to="/sell"
           className={`flex flex-col font-quicksand font-medium  items-center text-sm ${
             isCurrentRoute("/search") ? "text-orange" : "text-gray-600"
@@ -46,6 +37,16 @@ const BottomTabNavigator = () => {
           <CiGrid41 className="text-xl mb-1" />
           Collection
         </Link>
+        <Link
+          to="/shop"
+          className={`flex flex-col font-quicksand font-medium  items-center text-sm ${
+            isCurrentRoute("/shop") ? "text-orange" : "text-gray-600"
+          } hover:text-orange`}
+        >
+          <IoSearchOutline className="text-xl mb-1" />
+          Search
+        </Link>
+
         <Link
           to="/partner"
           className={`flex flex-col font-quicksand font-medium items-center text-sm ${

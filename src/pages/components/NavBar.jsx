@@ -15,9 +15,7 @@ import { AiOutlineCustomerService } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import Announcement from "../components/Announcement";
-import Profile from "../../assets/user.jpeg";
 import { VscClose } from "react-icons/vsc";
-import { PiDress } from "react-icons/pi";
 import Automobile from "../../assets/icons/automobile.png";
 import Dress from "../../assets/icons/dress.png";
 import Jewelery from "../../assets/icons/jewellery.png";
@@ -123,40 +121,41 @@ const Navbar = () => {
       link: "/home-improvement-tools",
     },
   ];
+  //  xl:gap-32 gap-2 items-center justify-center 
 
   return (
     <div className="sticky z-50 top-0 inset-x-0">
       {/* Announcement */}
       <Announcement />
       {/* Top Bar */}
-      <section className=" pb-6 flex  pt-6 bg-white hidden md:block">
-        <div className="flex gap-32 items-center justify-center ">
-          <div className="flex items-center gap-4">
-            <img src={Logo} className="h-12 w-12" />
+      <section className="pb-6 flex pt-6 bg-white hidden md:block ">
+        <div className="flex justify-center lg:gap-16">
+          <div className="flex items-center lg:gap-1 ">
+            <img src={Logo} className="lg:h-12 lg:w-12" />
             <p className="text-orange font-quicksand whitespace-nowrap text-2xl font-bold">
               Kemsey Store
             </p>
           </div>
 
-          <div class="flex font-quicksand flex-col items-center">
-            <h2 class="text-md whitespace-nowrap">Available 24/7 at</h2>
+          <div className="flex font-quicksand flex-col items-center lg:-ml-6">
+            <h2 className="text-md whitespace-nowrap">Available 24/7 at</h2>
             <p className="font-bold text-sm text-orange whitespace-nowrap">
               +1(800)555-5555
             </p>
           </div>
 
-          <div className="relative">
+          <div className="relative lg:mr-24 lg:mt-1">
             <input
               type="text"
               placeholder="Search the store"
               className="border rounded px-8 font-quicksand py-1 w-[32rem] h-10 rounded-3xl text-gray-600 focus:outline-none"
             />
-            <div className="absolute inset-y-0 right-0 pr-4 flex items-center ">
-              <IoSearchSharp className=" text-gray-500 h-6 w-6 cursor-pointer" />
+            <div className="absolute inset-y-0 right-0 pr-4 flex items-center lg:mb-1 justify-center ">
+              <IoSearchSharp className=" text-gray-500 lg:h-6 lg:w-6 cursor-pointer" />
             </div>
           </div>
 
-          <div className=" flex items-center justify-center gap-8 ">
+          <div className=" md:-ml-24 flex items-center justify-center gap-8 ">
             {menuItems.map((item, index) => (
               <div key={index} className="font-quicksand text-center ">
                 <div className="flex flex-col items-center gap-4 relative">
@@ -177,25 +176,19 @@ const Navbar = () => {
       </section>
 
       <section className=" bg-orange text-white">
-        <nav className="flex justify-between items-center w-[80%] mx-auto py-5">
+        <nav className="flex justify-between items-center w-[80%]  mx-auto py-5">
           <div className="lg:hidden gap-6 flex justify-center item-center -ml-6">
             <RxHamburgerMenu
               className="text-2xl cursor-pointer "
               onClick={() => setNavToggle(!navToggle)}
             />
-            {/* Drawer */}
+
             <div className={`drawer ${navToggle ? "show" : ""}`}>
               <div className="flex p-4 justify-between items-center mb-5 mt-2">
-                {/* <div className="w-16 h-16 rounded-full overflow-hidden"> */}
-                {/* <img
-                    src={Profile}
-                    alt=""
-                    className="w-full h-full object-center object-cover"
-                  /> */}
+
                 <h2 className="text-2xl text-gray-500 font-medium font-quicksand">
                   Menu
                 </h2>
-                {/* </div> */}
 
                 <VscClose
                   className="text-2xl rotate-on-hover cursor-pointer absolute right-3 text-orange"
@@ -225,7 +218,6 @@ const Navbar = () => {
             </section>
           </Link>
 
-          {/* Categories */}
           <div className="hidden md:block ">
             <div className="gap-4">
               <div
@@ -252,17 +244,17 @@ const Navbar = () => {
                     {categories.map((item, index) => (
                       <div
                         key={index}
-                        className="flex items-center gap-4 mt-2 pl-2 pr-2 pt-2 pb-2 hover:bg-yellow-100"
+                        className="flex items-center gap-4 lg:mt-3 mt-0 lg:p-0.5 p-2 hover:bg-yellow-100 "
                       >
                         <Link to={item.link}>
                           <img
                             src={item.image}
                             alt={item.title}
-                            className="w-6 h-6"
+                            className="lg:w-4 w-4 h-4 lg:h-4"
                           />
                         </Link>
                         <Link to={item.link}>
-                          <p className="font-quicksand text-gray-500  ">
+                          <p className="font-quicksand text-gray-500  text-sm lg:text-md">
                             {item.title}
                           </p>
                         </Link>
@@ -274,7 +266,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="hidden md:block pl-48">
+          <div className="hidden md:block justify-center items-center">
             <div className="flex justify-center  items-center gap-10 border-l-2 pl-4 border-white">
               {navigationItems.map((item, index) => (
                 <div key={index} className="relative">
@@ -290,7 +282,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:block">
-            <div className="flex items-center gap-6 ml-96">
+            <div className="flex items-center gap-6 ">
               <div className="flex items-center text-sm gap-2 font-quicksand border-white border-r-2 pr-4">
                 <AiOutlineCustomerService className="text-white" />
                 Help

@@ -55,7 +55,7 @@ const Footer = () => {
   };
 
   return (
-    <section className="pb-12">
+    <section className="lg:pb-0 pb-12">
       <div className="bg-white pt-10 pb-6 border-t border-gray-200">
         <div className="container grid grid-cols-1 ">
           <div className="col-span-1 space-y-4 mb-6">

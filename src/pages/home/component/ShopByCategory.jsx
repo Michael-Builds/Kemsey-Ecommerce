@@ -1,4 +1,3 @@
-import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,16 +6,6 @@ import Audio from "../../../assets/audio.png";
 import PC from "../../../assets/pc.png";
 import TV from "../../../assets/tv.png";
 import Phones from "../../../assets/phones.png";
-import Img1 from "../../../assets/gamepad.png";
-import Img2 from "../../../assets/category/category-2.jpg";
-import Img3 from "../../../assets/category/category-3.jpg";
-import Img4 from "../../../assets/category/category-4.jpg";
-import Img5 from "../../../assets/category/category-5.jpg";
-import Img6 from "../../../assets/category/category-6.jpg";
-import {
-  MdOutlineKeyboardArrowRight,
-  MdOutlineKeyboardArrowLeft,
-} from "react-icons/md";
 
 const categories = [
   {

@@ -96,13 +96,16 @@ const Main = () => {
   ];
   return (
     <div className="p-6 justify-center pb-8 lg:flex bg-gray-100 lg:gap-5 font-quicksand items-center  -mt-6">
-      <div className="shadow-lg bg-white rounded-md pt-4  h-[32rem] border-b-2 border-orange">
+      {/* Ctegories */}
+      <div className="shadow-lg bg-white rounded-md lg:pt-4  h-[32rem] border-b-2 border-orange">
         <div className=" pl-4 pr-4 -mb-4 ">
           <p className="text-sm p-2 font-bold text-center  bg-orange cat text-white">
             SHOP BY CATEGORIES
           </p>
         </div>
-        <div className="grid grid-cols-2 pl-12 pr-12 gap-4 mt-4 border-t-2 -pb-3 border-orange pt-4">
+        <div
+          className="grid grid-cols-2 pl-12 pr-12 gap-4 mt-4 border-t-2 -pb-3 border-orange pt-4 "
+        >
           {categories.map((category) => (
             <div
               key={category.id}
@@ -111,7 +114,7 @@ const Main = () => {
               <img
                 src={category.image}
                 alt={category.title}
-                className="h-6 w-6 mb-2"
+                className="lg:h-5 h-6 w-6 lg:w-5 mb-2"
               />
               <a href={`#${category.title.toLowerCase()}`}>
                 <p className="font-quicksand text-sm side ">{category.title}</p>
@@ -121,6 +124,7 @@ const Main = () => {
         </div>
       </div>
 
+      {/* Main Image */}
       <div className="relative group lg:mt-0 mt-12 cursor-pointer">
         <img
           src={Main_Image}
@@ -130,6 +134,7 @@ const Main = () => {
         <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 transition duration-300 group-hover:opacity-100 rounded-md"></div>
       </div>
 
+      {/* Display */}
       <div className=" rounded-md lg:mt-0 mt-12">
         <div className="grid grid-cols-2 gap-2 mt-2">
           {items.map((item, index) => (

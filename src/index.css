@@ -149,7 +149,8 @@
 }
 /* YourComponent.css */
 @keyframes danceUpDown {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -179,3 +180,30 @@
 .rotate-on-hover:hover {
   transform: rotate(360deg);
 }
+
+.coded {
+  position: relative;
+  overflow: hidden;
+}
+
+.coded:hover .border-animation {
+  border: 1px solid #fd6506;
+}
+
+.border-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent;
+  transition: border 0.3s ease;
+}
+.gradient-button {
+  background: linear-gradient(to right, orange, #fd6506);
+}
+
+.arrow-transition {
+  transition: transform 2s ease-in-out;
+}
+

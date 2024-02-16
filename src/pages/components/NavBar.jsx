@@ -13,13 +13,28 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { TbLayoutGrid } from "react-icons/tb";
 import { AiOutlineCustomerService } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
-import { IoCloseOutline } from "react-icons/io5";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import Announcement from "../components/Announcement";
 import Profile from "../../assets/user.jpeg";
 import { VscClose } from "react-icons/vsc";
+import { PiDress } from "react-icons/pi";
+import Automobile from "../../assets/icons/automobile.png";
+import Dress from "../../assets/icons/dress.png";
+import Jewelery from "../../assets/icons/jewellery.png";
+import CellPhone from "../../assets/icons/mobile-phone.png";
+import Men from "../../assets/icons/outfit.png";
+import Kids from "../../assets/icons/overalls.png";
+import Laptops from "../../assets/icons/responsive.png";
+import Skin_Care from "../../assets/icons/skin-care.png";
+import Sports from "../../assets/icons/sport-wear.png";
+import Home_Tools from "../../assets/icons/maintenance.png";
 
 const Navbar = () => {
+  const [isArrowUpClicked, setIsArrowUpClicked] = useState(false);
+
+  const handleArrowClick = () => {
+    setIsArrowUpClicked((prev) => !prev);
+  };
   const [navToggle, setNavToggle] = useState(false);
   const [searchToggle, setSearchToggle] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
@@ -55,6 +70,60 @@ const Navbar = () => {
       children: [],
     },
   ];
+
+  const categories = [
+    {
+      image: Dress,
+      title: "Women Clothing & Fashion",
+      link: "/women-clothing",
+    },
+    {
+      image: Men,
+      title: "Men Clothing & Fashion",
+      link: "/men-clothing",
+    },
+    {
+      image: Laptops,
+      title: "Computer & Accessories",
+      link: "/computer-accessories",
+    },
+    {
+      image: Automobile,
+      title: "Automobile & Motorcycle",
+      link: "/automobile-motorcycle",
+    },
+    {
+      image: Kids,
+      title: "Kids & Toys",
+      link: "/kids-toys",
+    },
+    {
+      image: Sports,
+      title: "Sports & Outdoor",
+      link: "/sports-outdoor",
+    },
+    {
+      image: Jewelery,
+      title: "Jewelry & Watches",
+      link: "/jewelry-watches",
+    },
+    {
+      image: CellPhone,
+      title: "Cellphones & Tabs",
+      link: "/cellphones-tabs",
+    },
+    {
+      image: Skin_Care,
+      title: "Beauty, Health & Hair",
+      link: "/beauty-health-hair",
+    },
+    {
+      image: Home_Tools,
+      title: "Home Improvement & Tools",
+      link: "/home-improvement-tools",
+    },
+  ];
+
   return (
     <div className="sticky z-50 top-0 inset-x-0">
       {/* Announcement */}
@@ -118,12 +187,14 @@ const Navbar = () => {
             <div className={`drawer ${navToggle ? "show" : ""}`}>
               <div className="flex p-4 justify-between items-center mb-5 mt-2">
                 {/* <div className="w-16 h-16 rounded-full overflow-hidden"> */}
-                  {/* <img
+                {/* <img
                     src={Profile}
                     alt=""
                     className="w-full h-full object-center object-cover"
                   /> */}
-                  <h2 className="text-2xl text-gray-500 font-medium font-quicksand">Menu</h2>
+                <h2 className="text-2xl text-gray-500 font-medium font-quicksand">
+                  Menu
+                </h2>
                 {/* </div> */}
 
                 <VscClose
@@ -155,23 +226,51 @@ const Navbar = () => {
           </Link>
 
           {/* Categories */}
-          <div className="hidden md:block">
-            <div className="gap-3">
+          <div className="hidden md:block ">
+            <div className="gap-4">
               <div
-                className="flex items-center gap-4"
+                className="flex items-center gap-6 relative"
+                onClick={handleArrowClick}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
-                <TbLayoutGrid className="text-white" />
+                <TbLayoutGrid />
+
                 <p className="font-quicksand font-medium whitespace-nowrap text-sm">
                   Categories (See All)
                 </p>
-                {isHovered ? (
-                  <MdKeyboardArrowUp className="cursor-pointer" />
+
+                {isArrowUpClicked ? (
+                  <MdKeyboardArrowUp className="cursor-pointer arrow-transition" />
                 ) : (
-                  <MdOutlineKeyboardArrowDown className="cursor-pointer" />
+                  <MdOutlineKeyboardArrowDown className="cursor-pointer arrow-transition" />
                 )}
               </div>
+              {isArrowUpClicked && (
+                <div className="absolute top-full left-0 bg-white ml-[6rem] p-4  pb-6 shadow-lg">
+                  <div className="">
+                    {categories.map((item, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-4 mt-2 pl-2 pr-2 pt-2 pb-2 hover:bg-yellow-100"
+                      >
+                        <Link to={item.link}>
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-6 h-6"
+                          />
+                        </Link>
+                        <Link to={item.link}>
+                          <p className="font-quicksand text-gray-500  ">
+                            {item.title}
+                          </p>
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 

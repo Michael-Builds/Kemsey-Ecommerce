@@ -33,9 +33,14 @@ const Navbar = () => {
   const handleArrowClick = () => {
     setIsArrowUpClicked((prev) => !prev);
   };
+
   const [navToggle, setNavToggle] = useState(false);
   const [searchToggle, setSearchToggle] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleSearchToggle = () => {
+    setSearchToggle((prevSearchToggle) => !prevSearchToggle);
+  };
 
   const menuItems = [
     { icon: <LuHeart className="h-5 w-5 " />, text: "Wish Lists" },
@@ -198,7 +203,7 @@ const Navbar = () => {
             </div>
 
             <IoSearchOutline
-              onClick={() => setNavToggle(!navToggle)}
+              onClick={handleSearchToggle}
               className="text-2xl cursor-pointer"
             />
           </div>
@@ -232,7 +237,7 @@ const Navbar = () => {
                   Categories (See All)
                 </p>
 
-                {isArrowUpClicked ? (
+                {isArrowUpClicked  && isHovered ? (
                   <MdKeyboardArrowUp className="cursor-pointer arrow-transition" />
                 ) : (
                   <MdOutlineKeyboardArrowDown className="cursor-pointer arrow-transition" />

@@ -13,6 +13,7 @@ import third from "../../../assets/3.avif";
 import fourth from "../../../assets/4.avif";
 
 const Main = () => {
+
   const categories = [
     {
       id: 1,
@@ -94,9 +95,11 @@ const Main = () => {
       image: fourth,
     },
   ];
+
   return (
     <div className="p-6 justify-center pb-8 lg:flex bg-gray-100 lg:gap-5 font-quicksand items-center  -mt-6">
-      {/* Ctegories */}
+     
+      {/* Categories */}
       <div className="shadow-lg bg-white rounded-md lg:pt-4  h-[32rem] border-b-2 border-orange">
         <div className=" pl-4 pr-4 -mb-4 ">
           <p className="text-sm p-2 font-bold text-center  bg-orange cat text-white">
@@ -149,6 +152,7 @@ const Main = () => {
           ))}
         </div>
       </div>
+      
     </div>
   );
 };

@@ -57,7 +57,7 @@ const ShopByCategory = () => {
     dots: false,
     infinite: true,
     speed: 200,
-    slidesToShow: 6,
+    slidesToShow: 4,
     slidesToScroll: 1,
     accessibility: true,
     nextArrow: <NextArrow />,
@@ -76,7 +76,7 @@ const ShopByCategory = () => {
   return (
     <section className="bg-gray-100">
       <div className="container py-16 px-10">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 ">
           <h2 className="text-xl font-bold font-quicksand text-gray-800 capitalize">
             Shop by category
           </h2>
@@ -96,7 +96,7 @@ const ShopByCategory = () => {
                 />
               </div>
               <p
-                className="font-quicksand mt-2 cursor-pointer lg:text-lg text-xs"
+                className="font-quicksand mt-4 cursor-pointer -ml-10 text-sm"
                 id="category_text"
               >
                 {category.title}

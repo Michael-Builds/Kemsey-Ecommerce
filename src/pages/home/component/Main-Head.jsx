@@ -97,17 +97,16 @@ const Main = () => {
   ];
 
   return (
-    <div className="p-6 justify-center pb-8 lg:flex bg-gray-100 lg:gap-5 font-quicksand items-center  -mt-6">
-     
-      {/* Categories */}
-      <div className="shadow-lg bg-white rounded-md lg:pt-4  h-[32rem] border-b-2 border-orange">
+    <div className="p-6 justify-center pb-8 lg:flex bg-gray-100 lg:gap-5 font-quicksand items-center -mt-6">
+
+      <div className="shadow-lg bg-white rounded-md lg:pt-4 md:pt-0 pt-4 border-b-2 border-orange">
         <div className=" pl-4 pr-4 -mb-4 ">
           <p className="text-sm p-2 font-bold text-center  bg-orange cat text-white">
             SHOP BY CATEGORIES
           </p>
         </div>
         <div
-          className="grid grid-cols-2 pl-12 pr-12 gap-4 mt-4 border-t-2 -pb-3 border-orange pt-4 "
+          className="grid grid-cols-2 pl-12 pr-12 gap-4 pb-4 mt-4 border-t-2 -pb-3 border-orange pt-2 "
         >
           {categories.map((category) => (
             <div
@@ -117,10 +116,10 @@ const Main = () => {
               <img
                 src={category.image}
                 alt={category.title}
-                className="lg:h-5 h-6 w-6 lg:w-5 mb-2"
+                className=" h-4 w-4 "
               />
               <a href={`#${category.title.toLowerCase()}`}>
-                <p className="font-quicksand text-sm side ">{category.title}</p>
+                <p className="font-quicksand side ">{category.title}</p>
               </a>
             </div>
           ))}
@@ -152,7 +151,7 @@ const Main = () => {
           ))}
         </div>
       </div>
-      
+
     </div>
   );
 };

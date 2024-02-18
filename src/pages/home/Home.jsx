@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -6,7 +6,6 @@ import BottomTabNavigator from "../components/BottomNavigator";
 import PreLoader from "../components/PreLoader";
 import Header from "./component/Header";
 import Hero_Header from "./component/Main-Head";
-import Discount from "./component/Discount";
 import Category from "./component/ShopByCategory";
 import ShopWithUs from "./component/ShopWithUs";
 import Subscription from "../components/NewsLetterModal";
@@ -69,7 +68,6 @@ const Home = () => {
           <NavBar />
           <Header />
           <Hero_Header />
-          <Discount />
           <Category />
           <ShopWithUs />
           <Footer />

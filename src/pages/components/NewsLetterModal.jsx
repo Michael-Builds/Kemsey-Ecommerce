@@ -51,10 +51,10 @@ const Main = ({ onClose }) => {
 
   return (
 
-    <div className=" h-screen dancing-container flex lg:p-0 items-center justify-center bg-overlay relative">
+    <div className=" h-screen dancing-container flex  items-center justify-center bg-overlay relative">
       <div className="flex relative">
         {/* Left */}
-        <div className="hidden  w-1/2 lg:flex lg:items-center lg:justify-center lg:w-full overflow-hidden sub-form-bg ">
+        <div className="hidden w-1/2 lg:flex lg:items-center lg:justify-center lg:w-full overflow-hidden sub-form-bg ">
           <img
             src={EmailBg}
             alt="Email Background"
@@ -62,9 +62,9 @@ const Main = ({ onClose }) => {
           />
         </div>
 
-
+        {/* -ml-1 lg:w-full w-1/2 overflow-hidden bg-white pb-8  relative */}
         {/* Right */}
-        <div className=" -ml-1 lg:w-full w-1/2 overflow-hidden bg-white pb-8 sub-form-card relative ">
+        <div className=" bg-white pb-8 sub-form-card">
           <button
             className="absolute form-close-card -top-4 -right-4 bg-orange p-3 m-4 text-white"
             onClick={onClose}

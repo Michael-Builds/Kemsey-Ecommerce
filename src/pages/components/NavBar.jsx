@@ -153,7 +153,7 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search the store"
-              className="border rounded px-8 font-quicksand py-1 w-[32rem] h-10 rounded-3xl text-gray-600 focus:outline-none"
+              className="border rounded text-sm px-6 font-quicksand py-1 w-[32rem] h-10 rounded-3xl text-gray-600 focus:outline-none"
             />
             <div className="absolute inset-y-0 right-0 pr-4 flex items-center lg:mb-1 justify-center ">
               <IoSearchSharp className=" text-gray-500 lg:h-6 lg:w-6 cursor-pointer" />
@@ -180,9 +180,9 @@ const Navbar = () => {
         </div>
       </section>
 
-      <section className=" bg-orange text-white">
-        <nav className="flex justify-between items-center w-[80%]  mx-auto py-5">
-          <div className="lg:hidden gap-6 flex justify-center item-center -ml-6">
+      <section className=" bg-orange text-white ">
+        <nav className="flex justify-between items-center w-[90%]  mx-auto py-5">
+          <div className="lg:hidden gap-6 flex justify-center item-center ">
             <RxHamburgerMenu
               className="text-2xl cursor-pointer "
               onClick={() => setNavToggle(!navToggle)}
@@ -237,7 +237,7 @@ const Navbar = () => {
                   Categories (See All)
                 </p>
 
-                {isArrowUpClicked  && isHovered ? (
+                {isArrowUpClicked && isHovered ? (
                   <MdKeyboardArrowUp className="cursor-pointer arrow-transition" />
                 ) : (
                   <MdOutlineKeyboardArrowDown className="cursor-pointer arrow-transition" />
@@ -301,7 +301,7 @@ const Navbar = () => {
           </div>
 
           {searchToggle && (
-            <ul className="flex items-center lg:hidden lg:flex -mr-6">
+            <ul className="flex items-center lg:hidden lg:flex ">
               <li className="text-xl">
                 <User />
               </li>

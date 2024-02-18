@@ -2,7 +2,7 @@
 
 const Main = () => {
   return (
-    <div className="justify-center flex items-center text-center p-6 gap-4 bg-gray-100 font-quicksand ">
+    <div className="justify-center flex flex-col items-center text-center p-6 gap-4 bg-gray-100 font-quicksand sm:flex-row">
       <p className="font-medium uppercase text-sm">
         Buy Now, Pay Later Starting at 0% APR
       </p>
@@ -10,6 +10,7 @@ const Main = () => {
         LEARN MORE
       </button>
     </div>
+
   );
 };
 export default Main;

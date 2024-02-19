@@ -38,9 +38,9 @@ const Navbar = () => {
   const [searchToggle, setSearchToggle] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleSearchToggle = () => {
-    setSearchToggle((prevSearchToggle) => !prevSearchToggle);
-  };
+  // const handleSearchToggle = () => {
+  //   setSearchToggle((prevSearchToggle) => !prevSearchToggle);
+  // };
 
   const menuItems = [
     { icon: <LuHeart className="h-5 w-5 " />, text: "Wish Lists" },
@@ -180,11 +180,11 @@ const Navbar = () => {
         </div>
       </section>
 
-      <section className=" bg-orange text-white ">
+      <section className=" md:bg-orange lg:bg-orange md:shadow-xs lg:shadow-xs bg-white shadow-lg text-white ">
         <nav className="flex justify-between items-center w-[90%]  mx-auto py-5">
           <div className="lg:hidden gap-6 flex justify-center item-center ">
             <RxHamburgerMenu
-              className="text-2xl cursor-pointer "
+              className="text-2xl cursor-pointer text-gray-600"
               onClick={() => setNavToggle(!navToggle)}
             />
 
@@ -201,11 +201,11 @@ const Navbar = () => {
                 />
               </div>
             </div>
-
+{/* 
             <IoSearchOutline
               onClick={handleSearchToggle}
               className="text-2xl cursor-pointer"
-            />
+            /> */}
           </div>
 
           <Link to="/" className="lg:hidden ">
@@ -219,7 +219,7 @@ const Navbar = () => {
                 />
               </div>
 
-              <h1 className="font-bold text-lg font-quicksand">Kemsey Store</h1>
+              <h1 className="font-bold text-gray-600 text-lg font-quicksand">Kemsey Store</h1>
             </section>
           </Link>
 
@@ -302,12 +302,12 @@ const Navbar = () => {
 
           {searchToggle && (
             <ul className="flex items-center lg:hidden lg:flex ">
-              <li className="text-xl">
+              <li className="text-xl text-gray-600">
                 <User />
               </li>
               <Link to="/cart" className="relative p-2 rounded-full">
-                <PiShoppingCartThin className="text-xl " />
-                <div className="absolute -top-2 -right-2 left-5 p-3 h-4 text-xs rounded-full bg-white text-orange flex justify-center items-center">
+                <PiShoppingCartThin className="text-xl text-gray-600 " />
+                <div className="absolute -top-2 -right-2 left-5 p-3 h-4 text-xs rounded-full bg-orange text-white flex justify-center items-center">
                   <p className="text-center  justify-center font-quicksand">
                     9
                   </p>
